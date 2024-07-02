@@ -1,0 +1,148 @@
+.habilidades {
+
+    margin: 4em 7em;
+
+    h2 {
+        font-size: 3rem;
+        line-height: 1.63rem;
+        font-weight: 700;
+        color: var(--preto-texto);
+        margin-bottom: 1em;
+
+    }
+
+    &__icones {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        text-align: center;
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 1.5rem;
+            line-height: 1.13rem;
+            color: var(--cinza-texto);
+            margin-bottom: 2em;
+        }
+    }
+
+    &__idioma {
+
+        h2 {
+            margin-bottom: 1em;
+        }
+
+
+    }
+
+}
+
+.idioma {
+
+    display: flex;
+    align-items: center;
+    margin: 0 4em;
+
+    p {
+        margin-right: 2em;
+        color: var(--cinza-texto);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--branco);
+        font-size: 1rem;
+    }
+
+    button {
+        border-radius: 10px;
+        width: 140px;
+        height: 40px;
+        border: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .idioma {
+        margin-bottom: 1em;
+        flex-direction: column;
+        text-align: center;
+
+        p {
+            margin-right: 0em;
+            font-size: 1.63rem;
+        }
+
+        a {
+            font-size: 1.13rem;
+        }
+    }
+
+    .imageContainer {
+
+        img {
+            width: 800px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .habilidades {
+
+        margin: 2em 2em;
+
+        h2 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+            text-align: center;
+        }
+
+        &__icones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            img {
+                width: 85px;
+                height: 85px;
+                margin: .3em;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .idioma {
+
+        margin: 0 1em;
+
+        p {
+            margin-right: 1em;
+            font-size: 1.13rem;
+        }
+
+        a {
+            font-size: 1.13rem;
+        }
+
+        button {
+            width: 200px;
+            font-size: 1rem;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    .imageContainer {
+
+        img {
+            width: 320px;
+        }
+    }
+}

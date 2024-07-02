@@ -1,0 +1,30 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 330px;
+    margin: 0 auto;
+
+    h5 {
+        font-size: 2rem;
+        line-height: 2rem;
+        font-weight: 700;
+        color: var(--preto-texto);
+        margin-bottom: 1em;
+        text-align: center;
+    }
+
+    &__imagem {
+        width: 340px;
+        margin-bottom: 1.5rem;
+    }
+
+
+}

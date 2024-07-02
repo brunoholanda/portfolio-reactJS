@@ -1,0 +1,168 @@
+.painel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+}
+
+.formulario h2 {
+    color: var(--branco);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.error {
+    color: red;
+    margin: 0 0 1rem 2rem;
+  }
+  
+  .required-field {
+    border: 1px solid red;
+  }
+
+.painel input {
+    margin-bottom: 1.5em;
+    border-style: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 423px;
+    height: 10px;
+    font-size: 15px;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.painel textarea {
+    margin-bottom: 1.5em;
+    border-style: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 423px;
+    height: 150px;
+    font-size: 18px;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.painel button {
+    width: 458px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    background: #42446E;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.4s all;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+.painel button:hover {
+    background: orange;
+}
+
+.imagem {
+    display: flex;
+}
+
+.imagemBotao {
+    width: 180px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    background: #42446E;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.4s all;
+    margin-bottom: 1.5em;
+    border-radius: 8px;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.imagemBotao:hover { 
+    background: orange;
+}
+
+.imagem p {
+    color: #ffffff;
+    margin-left: 1.3rem;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page h1 {
+    text-align: center;
+    margin: 1rem 0;
+    color: var(--preto-texto);
+}
+
+.page button {
+    width: 458px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    background: #42446E;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.4s all;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+.page button:hover {
+    background: orange;
+}
+
+
+.postagem h2,
+p {
+    color: var(--preto-texto);
+}
+
+.postagem {
+    margin: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.postagem img {
+    width: 300px;
+}
+
+.postagem button {
+    width: 110px;
+    height: 35px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    background: #42446E;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.4s all;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    margin: 0 2rem 0 0;
+}
+
+.postagem button:hover {
+    background: orange;
+}
+
+.postagem a {
+    text-decoration: none;
+}
+
+.postagem a:hover {
+    color: orange;
+    font-weight: bold;
+}
+
+.postagemBotoes {
+    margin: 2rem 0;
+}

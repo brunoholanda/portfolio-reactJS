@@ -1,0 +1,72 @@
+.post {
+
+    margin: 3em 8em;
+    
+    &__botao {
+        margin-bottom: 1rem;
+        button {
+            border: none;
+            width: 100px;
+            height: 40px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+    }
+    &__artigo {
+        
+        img {
+            width: 550px;
+        }
+
+        h2, h3 {
+            color: var(--preto-texto);
+        }
+    
+        h2 {
+            font-size: 3rem;
+        }
+    
+        h3 {
+            font-size: 2rem;
+        }
+    
+        p {
+            color: var(--cinza-texto);
+            font-size: 1.2rem;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .post {
+        margin: 3em 4em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .post {
+        text-align: center;
+        margin: 2em 2em;
+
+       
+        &__artigo {
+            img {
+                width: 310px;
+            }
+        }
+    
+        &__cards {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.btn {
+    background-color: var(--azul);
+    color: var(--branco);
+    font-family: var(--fonte-secundaria);
+    font-weight: 500;
+    padding: 10px 20px; /* Adicione padding para garantir que o texto esteja bem centralizado */
+    border: none; /* Remova qualquer borda padrão */
+    border-radius: 5px; /* Adicione bordas arredondadas, se desejar */
+    display: inline-flex; /* Torne o elemento inline-flex para alinhar o texto e a imagem */
+    align-items: center; /* Centralize verticalmente o conteúdo */
+    text-decoration: none; /* Remova a sublinhado padrão dos links */
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: 0.5s ease;
+}

@@ -1,0 +1,66 @@
+.socialLinks {
+
+    display: flex;
+
+    &__wp, &__git, &__li {
+        width: 30px;
+        height: 30px;
+        background-size: cover;
+        transition: background-image 0.5s ease;
+        margin-right: 1em;
+    }
+
+    &__git {
+        background-image: url('../../public/assets/icons/github.svg');
+    }
+
+    &__git:hover {
+        background-image: url('../../public/assets/icons/github-hover.png');
+        cursor: pointer;
+    }
+    
+    &__li {
+        background-image: url('../../public/assets/icons/linkedin.svg');
+    }
+
+    &__li:hover {
+        background-image: url('../../public/assets/icons/linkedin-hover.png');
+        cursor: pointer;
+    }
+
+    &__wp {
+        background-image: url('../../public/assets/icons/wp.png');
+    }
+
+    &__wp:hover {
+        background-image: url('../../public/assets/icons/wp-hover.png');
+        cursor: pointer;
+    }
+
+}
+
+.languageSwitcher {
+
+    img {
+        width: 34px;
+        height: 22px;
+        margin-right: 5px;
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+    button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .socialLinks {
+
+        img {
+            margin: 0 .8em;
+
+        }
+    }
+}

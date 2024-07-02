@@ -1,0 +1,13 @@
+.divisor {
+    border: 1px solid var(--cinza-texto);
+    margin: 1em 7em;
+    box-shadow: 2px 2px 100px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    opacity: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .divisor {
+        margin: 1em 2em;
+    }
+}
