@@ -45,11 +45,11 @@ export default function About() {
                         {language === 'pt-br' ? 'Sobre Mim' : 'About Me'}
                     </Titulo>
                     <p>{language === 'pt-br'
-                        ? 'Desenvolvedor Web FullStack codando páginas Mobile First com responsividade, aplicando SASS e JavaScript, foco em entrega rápida, qualidade e ótimas funcionalidades.'
+                        ? 'Desenvolvedor Web FullStack codando páginas Mobile First com responsividade, aplicando SASS e JavaScript, foco em entrega rápida, qualidade e ótimas funcionalidades, sendo capaz de entregar solucoes completas com backend e infra estrutura.'
                         : 'FullStack Web Developer coding Mobile First pages with responsiveness, applying SASS and JavaScript, focusing on fast delivery, quality, and great features.'}
                     </p>
                     <p>{language === 'pt-br'
-                        ? 'Já criei sites para restaurante, barbearia, lojas online, marketplace para vender artes. Atualmente estou desenvolvendo em React e possuo capacidade rápida de aprendizado.'
+                        ? 'Já criei um SAAS de agendamentos e gestão de clínicas, bem como sites para restaurante, barbearia, lojas online, e sites profissionais para dentistas e outros profissionais. Atualmente minha stack principal é o React e possuo capacidade rápida de aprendizado.'
                         : 'I have created websites for restaurants, barbershops, online stores, and art selling marketplaces. Currently developing in React and having a quick learning capability.'}
                     </p>
                     <p>{language === 'pt-br'
@@ -78,8 +78,8 @@ export default function About() {
                     <h3>{language === 'pt-br' ? 'Desenvolvedor Web FullStack - Autônomo' : 'FullStack Web Developer - Freelancer'}</h3>
                     <h4>{language === 'pt-br' ? 'O que eu faço:' : 'What I do:'}</h4>
                     <p>{language === 'pt-br'
-                        ? 'Desenvolvimento de websites e <strong>Sistemas Web Fullstack </strong> Mobile First com responsividade, utilizando ReactJS, JavaScript, CSS, SASS e HTML aplicando conceitos de API`s. Foco em entrega rápida, qualidade e ótimas funcionalidades.'
-                        : 'Development of websites and <strong>Fullstack Web Systems</strong> Mobile First with responsiveness, using ReactJS, JavaScript, CSS, SASS, and HTML applying API concepts. Focus on fast delivery, quality, and great features.'}
+                        ? 'Desenvolvimento de websites e Sistemas Web Fullstack Mobile First com responsividade, utilizando ReactJS, JavaScript, CSS, SASS e HTML aplicando conceitos de API`s. Foco em entrega rápida, qualidade e ótimas funcionalidades.'
+                        : 'Development of websites and Fullstack Web Systems Mobile First with responsiveness, using ReactJS, JavaScript, CSS, SASS, and HTML applying API concepts. Focus on fast delivery, quality, and great features.'}
                     </p>
                     <p><strong>{language === 'pt-br' ? 'Projetos mais relevantes:' : 'Most relevant projects:'}</strong></p>
                     <ul>
@@ -127,7 +127,7 @@ export default function About() {
                     )}
                     <img className={styles.divisorImg} src={divisor} alt="divisor de experiencias" />
                     <div className={styles.formacao}>
-                        <p>{language === 'pt-br' ? 'Administração de Pessoas - IFPB' : 'People Management - IFPB'}</p>
+                        <p>{language === 'pt-br' ? 'Administração de Empresas e Negócios - IFPB' : 'Business Management - IFPB'}</p>
                         <Botao><a href="#" onClick={handleLinkClickAdm}>{language === 'pt-br' ? 'Ver Certificado' : 'View Certificate'}</a></Botao>
                     </div>
                 </div>

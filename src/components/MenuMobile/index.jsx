@@ -50,10 +50,10 @@ export default function MenuMobile() {
                         <li>{language === 'pt-br' ? 'Hobbies' : 'Hobbies'}</li>
                     </Link>
                     <div className={styles.mobileMenu__cv}>
-                        <a href="https://drive.google.com/file/d/1n_LfAgGwAXUYOQV4Kr1pKdIe9E__ukBb/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV BR</a>
+                        <a href="https://drive.google.com/file/d/1Z-hbH7P_nEInGMWRML6JBaOtSDma5DVx/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV BR</a>
                     </div>
                     <div className={styles.mobileMenu__cv}>
-                        <a href="https://drive.google.com/file/d/1rOYKPQFoZ00veHIbaxrLT2v6fTVwNiin/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV EUA</a>
+                        <a href="https://drive.google.com/file/d/1pjMWjYA1uJ4z_NdWRwxR1Jw0YnqnspHc/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV EUA</a>
                     </div>
 
                 </ul>

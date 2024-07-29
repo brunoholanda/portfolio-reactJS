@@ -35,7 +35,7 @@ function Presentation() {
                 />
             </div>
             <div className={styles.introducao__imagem}>
-                <img src={profile} alt={language === 'pt-br' ? 'foto do perfil bruno holanda' : 'Bruno Holanda profile picture'} />
+                <img src={profile} alt={language === 'pt-br' ? 'Bruno Holanda - Desenvolvedor Web FullStack foto de perfil' : 'Bruno Holanda - FullStack Web Developer profile picture'} />
             </div>
         </div>
     );

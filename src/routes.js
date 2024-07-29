@@ -13,7 +13,9 @@ const PageBody = lazy(() => import('pages/PageBody'));
 const MyStacks = lazy(() => import('pages/MyStacks'));
 const MyProjectsPage = lazy(() => import('pages/MyProjectsPage'));
 const About = lazy(() => import('pages/About'));
+const CapturePage = lazy(() => import('pages/Capture'));
 const Posts = lazy(() => import('pages/Painel'));
+
 const Authentication = lazy(() => import('pages/Auth'));
 
 function AppRoutes() {
@@ -60,6 +62,7 @@ function AppRoutes() {
             <Route path="/projetos/:id" element={<Post />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/hobbies" element={<Hobbies />} />
+
             <Route
               path="/operador"
               element={
@@ -76,7 +79,11 @@ function AppRoutes() {
             />
             <Route path="*" element={<NotFound />} />
           </Route>
+          <Route path="/ebookgratis" element={<CapturePage />} />
+
         </Routes>
+
+
       </Suspense>
       <FloatingButton onClick={handleChatbotClick} />
     </HashRouter>

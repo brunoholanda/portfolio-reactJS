@@ -116,7 +116,7 @@ const Chatbot = ({ onClose }) => {
       role: 'system',
       content: localStorage.getItem('systemMessage')
     };
-
+  
     try {
       const response = await axios.post(
         'https://api.openai.com/v1/chat/completions',
@@ -135,13 +135,15 @@ const Chatbot = ({ onClose }) => {
           }
         }
       );
-
+  
+      console.log('Bot response:', response.data); // Adicione este log para verificar o retorno
       return response.data.choices[0].message.content.trim();
     } catch (error) {
-      console.error('Error fetching the bot response:', error);
+      console.error('Error fetching the bot response:', error.response ? error.response.data : error.message);
       return 'Desculpe, houve um problema ao obter a resposta. Tente novamente mais tarde.';
     }
   };
+  
 
   const checkResumeRequest = (userInput) => {
     const resumeKeywords = ['currículo', 'resumo', 'resume', 'CV'];
