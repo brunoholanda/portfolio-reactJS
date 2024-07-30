@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, HashRouter, useLocation } from 'react-router-d
 import { hotjar } from 'react-hotjar';
 import Loading from 'components/Loading';
 import FloatingButton from 'components/FloatingButton';
+import CourseVideo from 'pages/Members/CourseVideo';
 
 const Contact = lazy(() => import('pages/Contact'));
 const Hobbies = lazy(() => import('pages/Hobbies'));
@@ -15,6 +16,12 @@ const MyProjectsPage = lazy(() => import('pages/MyProjectsPage'));
 const About = lazy(() => import('pages/About'));
 const CapturePage = lazy(() => import('pages/Capture'));
 const Posts = lazy(() => import('pages/Painel'));
+
+const PageBodyMembers = lazy(() => import('pages/Members/PageBodyMembers'));
+
+const MembersArea = lazy(() => import('pages/Members'));
+const CourseDetails = lazy(() => import('pages/Members/CourseDetails'));
+
 
 const Authentication = lazy(() => import('pages/Auth'));
 
@@ -78,6 +85,12 @@ function AppRoutes() {
               element={<Authentication setIsAuthenticated={setIsAuthenticated} />}
             />
             <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route  element={<PageBodyMembers />}>
+            <Route path="/area-de-mebros" element={<MembersArea />} />
+            <Route path="/course-details" element={<CourseDetails />} />
+            <Route path="/course-video" element={<CourseVideo />} />
+
           </Route>
           <Route path="/ebookgratis" element={<CapturePage />} />
 
