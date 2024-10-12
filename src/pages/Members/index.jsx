@@ -5,13 +5,21 @@ import { Link } from 'react-router-dom';
 export default function MembersArea() {
   return (
     <S.MembersArea>
-    
+
       <S.WelcomeMessage>Olá Bruno Holanda</S.WelcomeMessage>
       <S.Programs>
         <S.SectionTitle>Cusrsos Disponiveis</S.SectionTitle>
         <S.Card>
           <S.CardTitle>Do zero a primeira pagina web</S.CardTitle>
           <p>Tenha o poder do html e css nas suas maõs 🫵</p>
+
+          <Link to="/course-details">
+            <S.StartButton>Comece Aqui</S.StartButton>
+          </Link>
+        </S.Card>
+        <S.Card>
+          <S.CardTitle>Mentoria mude de carreira</S.CardTitle>
+          <p>Ideal para quem esta cansado do trabalho atual 🫵</p>
 
           <Link to="/course-details">
             <S.StartButton>Comece Aqui</S.StartButton>

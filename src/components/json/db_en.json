@@ -2,7 +2,17 @@
     "projects": [
         {
             "id": 1,
-            "image": "https://nerdking.net.br/wp-content/uploads/2024/05/1709763259416-1.jpeg",
+            "image": "/assets/img/posts/vendas.webp",
+            "titulo": "Sales Page",
+            "resumo": "Travel for free with Romulo, a fast and accessible sales page for travel events. Created on demand for a client who needed practicality and low cost...",
+            "post": "Discover Destinos, an ideal sales page for travel events. Custom-made, it offers speed and accessibility, meeting a client's request for a low-cost, easy-to-use solution.\n\n The page features an intuitive design, highlighting key destinations and making event registration easy. It also includes modules for post-event feedback and social media integration for a complete experience.\n\n ### What did I learn? \n\n I enhanced my web development skills, taking responsibility for creating the page from scratch, from design to implementation.\n\n ### Technologies used: \n\n React.js • Styled Components • JavaScript • Git\n\n ### How to use? \n\n Access the page, learn about the event details, and easily sign up with your email.",
+            "stacks": "React, JavaScript, Styled, html",
+            "deploy": "https://vendas-evento-romulo.vercel.app/",
+            "repositorio": "https://github.com/brunoholanda/vendas-evento-romulo"
+        },
+        {
+            "id": 2,
+            "image": "/assets/img/posts/marquei.webp",
             "title": "Complete SAAS",
             "summary": "Meet Marquei, a complete software for healthcare professionals and clinic management, Marquei was designed to improve the daily lives of professionals who...",
             "post": "Meet Marquei, a complete software for healthcare professionals and clinic management, Marquei was designed to improve the daily lives of professionals who need a fast and easy-to-use system with personalized support. \n\n The system has automated appointment management and satisfaction surveys, as well as accounting and stock modules for clinics and a complete customer registration. \n\n ### What did I learn? \n\n With this project, I became full stack, I was responsible for developing the entire system from the database, backend, frontend, and infrastructure. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • Styled Components • Git \n\n ### How to use? \n\n Access Marquee to learn more. Log in with registered Email and password.",
@@ -11,8 +21,8 @@
             "repositorio": "Nao disponivel"
         },
         {
-            "id": 2,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/cursostech.png",
+            "id": 3,
+            "image": "/assets/img/posts/cursostech.webp",
             "title": "Tech Courses BR",
             "summary": "Fictional website for a Ministry of Education program that maps technology courses available in Brazil...",
             "post": "The fictional website for a Ministry of Education program. An online responsive platform that aims to map and provide updated information about all the colleges offering technology courses in Brazil. The page has an intuitive and easy-to-use interface, allowing users to quickly access the information they are looking for. \n\n It has a registration and login system so that in the future it will be possible to collect user information such as Email, location, and search preferences. \n\n ### What did I learn? \n\n My biggest learning in this project was creating a hook for login and registration control using LocalStorage. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n Click on the Login button \n\n Register \n\n Log in with registered Email and password.",
@@ -21,8 +31,8 @@
             "repositorio": "https://github.com/brunoholanda/cursos-tech-br"
         },
         {
-            "id": 3,
-            "image": "https://nerdking.net.br/wp-content/uploads/2024/05/1692483803770.jpeg",
+            "id": 4,
+            "image": "/assets/img/posts/dentista.webp",
             "title": "Dentist Website",
             "summary": "Website for a dentist, the true professional portfolio...",
             "post": "The dental clinic's website serves as a personal portfolio for the dentist, highlighting her expertise, services offered, and facilitating direct contact between patients and the professional. In addition to presenting detailed information about the available dental treatments, the website also includes an interactive calendar where patients can schedule their appointments online, view availabilities, and receive automated reminders about their upcoming visits. \n\n ### What did I learn? \n\n The importance of a user-friendly and informative interface for patients, SEO practices to improve online visibility, integration with scheduling systems, and the development of a dynamic image gallery. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n Just access the website \n\n Browse through the pages \n\n Learn about the professional's work",
@@ -31,8 +41,8 @@
             "repositorio": "https://github.com/brunoholanda/dentista-waleska"
         },
         {
-            "id": 4,
-            "image": "https://nerdking.net.br/wp-content/uploads/2024/05/1687215940873.jpeg",
+            "id": 5,
+            "image": "/assets/img/posts/amor.webp",
             "title": "Love and Life",
             "summary": "Website for a social project to increase its reach...",
             "post": "Our social project's website is designed to increase the visibility of our actions, encourage donations, and expand the reach of our community assistance. It serves as an informative and engaging platform, highlighting the missions, positive impacts achieved, and testimonials from those helped by the project. \n\n Through the website, visitors can easily make online donations, either as one-time contributions or recurring ones, using a secure and simplified payment process. Additionally, there is a dedicated volunteer section where interested individuals can sign up to participate in the activities and events organized by the project. \n\n ### What did I learn? \n\n Creating online fundraising campaigns, the importance of a compelling narrative to connect with the public, SEO optimization techniques to improve online visibility, and implementing secure payment systems to facilitate donations. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n Just access and navigate through the portal.",
@@ -41,8 +51,8 @@
             "repositorio": "https://github.com/brunoholanda/AmorEVida-fork"
         },
         {
-            "id": 5,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/imobiliaria.png",
+            "id": 6,
+            "image": "/assets/img/posts/imobiliaria.webp",
             "title": "Real Estate",
             "summary": "Website for a real estate agency with an experimental feature that allows anyone to list properties for rent or sale (Marketplace)",
             "post": "In addition to allowing the real estate agency to list properties, the website includes an experimental feature that allows anyone to list properties for rent or sale, transforming the website into a real estate marketplace. This means that people who have properties for rent or sale can eventually create an account and post their own listings on the website, increasing the number of properties available for potential buyers or tenants. The website provides information about each property, such as photos, descriptions, prices, and location information. It can also include a contact form to allow users to get in touch with the real estate agency or the property owners. \n\n By clicking on the button available in the initial banner, the user can access the feature to add properties. \n\n ### What did I learn? \n\n My biggest learning in this project was the practice of JavaScript in React. Creating this feature to add properties for the first time was not easy, but I understood that it is something that can be implemented in various applications. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n Click the LIST HERE button in the banner \n\n Enter the property information to be listed \n\n Click the 'Add Property' button",
@@ -51,8 +61,8 @@
             "repositorio": "https://github.com/brunoholanda/imobiliaria"
         },
         {
-            "id": 6,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/restaurante.png",
+            "id": 7,
+            "image": "/assets/img/posts/restaurante.webp",
             "title": "Restaurant",
             "summary": "Website for a restaurant using an API to collect menu data and a mouth-watering style, made in React...",
             "post": "The restaurant's website is a great way to present the menu clearly and attractively. To enhance the experience, it is possible to use APIs to collect menu data directly from an order management system. This way, the website will always display the most up-to-date information about the dishes, drinks, and desserts available. \n\n Additionally, the website's style should be carefully planned to make visitors' mouths water. This can include using high-quality images of the dishes, fonts that match the restaurant's theme, and color palettes that reflect the ingredients used in the dishes. \n\n ### What did I learn? \n\n My biggest learning in this project was about styling the cards with product photos, including a hover effect with the entire div using a negative margin-top. I also reinforced my backend studies, even though I used a fake API. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • CSS • Git \n\n ### How to use? \n\n It's just a landing page, and you can access its deployment [Clicking here](https://imobiliaria-orpin.vercel.app/)",
@@ -61,8 +71,8 @@
             "repositorio": "https://github.com/brunoholanda/restaurante"
         },
         {
-            "id": 7,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/nivernay.png",
+            "id": 8,
+            "image": "/assets/img/posts/nivernay.webp",
             "title": "Birthday Site",
             "summary": "Website for organizing a birthday party, where guests can gift the birthday person with amounts that correspond to...",
             "post": "The birthday party organization website allows guests to gift the birthday person with amounts corresponding to items from a wish list provided on the site, offering a practical and convenient way to gift, ensuring the birthday person receives only the gifts they really want. Additionally, the site includes information about the party, such as date, time, and location, and allows guests to confirm attendance and leave messages for the birthday person. \n\n The website is developed in React, using an API for payment management. With a modern and intuitive design, the site provides a unique and innovative experience for organizing and celebrating birthdays. \n\n ### What did I learn? \n\n Although it may seem simple, my biggest learning in this project was creating the hamburger menu within React. I ended up using the mdb-react-ui-kit library, which allowed me to deliver the project quickly as the client wanted the site urgently. I also had to manage the creation of payment links within PagSeguro. In the end, everything worked out! I also reinforced my API studies, even though I used a fake API. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n It's an intuitive landing page, and you can access its deployment [Clicking here](https://niver-org-presentes.vercel.app/)",
@@ -71,8 +81,8 @@
             "repositorio": "https://github.com/brunoholanda/imobiliaria"
         },
         {
-            "id": 8,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/borali.png",
+            "id": 9,
+            "image": "/assets/img/posts/borali.webp",
             "title": "BoraLi Viver",
             "summary": "A blog-type website to provide travel itinerary tips and places, generating earnings through affiliate tools from Booking and Rent a Cars...",
             "post": "A blog-type website to provide travel itinerary tips and places is a great idea for those who want to share their travel experiences and help others plan their own adventures. This type of platform can be a valuable source of information for novice and experienced travelers who want to explore new places and discover new cultures. \n\n In addition to providing useful and interesting information about travel destinations, the site generates revenue through affiliate tools from Booking and Rent a Cars. These tools allow users to book their accommodations and rent their cars directly from the site, while the site owner earns a commission for each reservation made. \n\n ### What did I learn? \n\n The site was developed in WordPress and is hosted on a Digital Ocean Droplet. The biggest learning was implementing plugins, such as lazy-loading, CSS minify, and image compression for faster page loading, as well as SEO techniques to improve visibility in search engines like Google, Bing, and others. \n\n ### Technologies used: \n\n WordPress, Droplets Linux \n\n ### How to use? \n\n It's a blog where the administrator can add new posts to the page [Clicking here](https://boraliviver.com.br/)",
@@ -81,8 +91,8 @@
             "repositorio": ""
         },
         {
-            "id": 9,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/nerdking.png",
+            "id": 10,
+            "image": "/assets/img/posts/nerdking.webp",
             "title": "NerdKing Technology",
             "summary": "A blog-type website to spread tips and tutorials for various technologies, generating earnings through Google ads. Made in WordPress...",
             "post": "Attention! All the projects within this blog are my own, and you can see my creations in the hobbies section of this page. \n\n NerdKing Technology is a blog-type website to spread tips and tutorials for various technologies, an excellent way to share knowledge and experiences with people interested in the subject. \n\n In addition to providing useful and informative content, the site generates revenue through Google ads. Through Google AdSense, the site owner can display ads on their pages and earn a commission for each click on the ads. \n\n Another important aspect is the site's marketing and promotion, which includes SEO techniques to increase the site's visibility in Google's search results, as well as promoting the site's content on social media and other online platforms. The more visits the site gets, the higher the revenue generated by Google ads. \n\n ### What did I learn? \n\n The site was developed in WordPress and is hosted on a Digital Ocean Droplet. It was my first site hosted on a Droplet, and it was extremely difficult to configure the server five years ago with little knowledge on the subject. I must also highlight the implementation of plugins, such as lazy-loading, CSS minify, and image compression for faster page loading, along with countless other plugins for capturing emails, comments, and shares. \n\n ### Technologies used: \n\n WordPress, Droplets, Linux, WordPress Plugins \n\n ### How to use? \n\n It's a blog where the administrator can add new posts to the page [Clicking here](https://nerdking.net.br/)",
@@ -91,8 +101,8 @@
             "repositorio": ""
         },
         {
-            "id": 10,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/alurageek.png",
+            "id": 11,
+            "image": "/assets/img/posts/alurageek.webp",
             "title": "AluraGeek",
             "summary": "Alura Geek is a fictional marketplace that brings together Geek products for purchase. In this project, it was possible to practice React's UseStates...",
             "post": "Alura Geek is a fictional marketplace developed to bring together products related to the Geek universe for online purchases. This type of platform is very interesting for fans of pop culture and technology, as it offers a wide variety of products. \n\n To make the platform more attractive and functional, React, a very popular JavaScript library for user interface development, was used. With React, it was possible to implement several interesting features in Alura Geek, such as using UseStates. \n\n UseStates are a React feature that allows the creation of state variables that can be modified over time. They are very useful for implementing dynamic functionalities on a website, such as updating information in real-time or changing colors and images when hovering over a product. \n\n Finally, it is important to highlight that using React in the Alura Geek project enabled more agile and efficient development, as the library simplifies many of the complex tasks involved in creating an e-commerce platform. This allowed the project developers to focus more on creating an attractive design and an intuitive user interface, ensuring a pleasant shopping experience for users. \n\n ### What did I learn? \n\n My biggest learning in this project was the practice of JavaScript in React. Creating this feature to add new products, even though it was not the first time I developed this type of feature, was not easy, but I understood that it is something that can be implemented in various applications. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • SASS • Git \n\n ### How to use? \n\n [Enter the Page](https://alura-geek-react-n25q.vercel.app/) \n\n Click on -See all Products- \n\n Click the 'Add products' button",
@@ -101,8 +111,8 @@
             "repositorio": "https://github.com/brunoholanda/AluraGeek-REACT"
         },
         {
-            "id": 11,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/barbearia.png",
+            "id": 12,
+            "image": "/assets/img/posts/barbearia.webp",
             "title": "Vieira Barber Shop",
             "summary": "Website for the neighborhood barber shop where I get my hair cut. The link to the site is on the company's social networks and aims to connect clients who...",
             "post": "The company and aims to connect clients looking for the barber shop's services. Additionally, the site provides information about the services offered, operating hours, prices, and special promotions. \n\n For the specific barber shop in question, the site plays an important role in connecting clients with the company, allowing them to learn more about the services offered and schedule appointments for haircuts, shaves, and other beauty services. It is important that the site is easily accessible and navigable, with an attractive and responsive design that can be accessed both on desktops and mobile devices. \n\n ### What did I learn? \n\n Mobile First development, creating a hamburger menu from scratch, a photo carousel with JavaScript, and WhatsApp integration \n\n ### Technologies used: \n\n HTML • JavaScript • HTML • CSS • Git \n\n ### How to use? \n\n It is an intuitive landing page, and you can access its deployment [Clicking here](https://vieira-barbearia-job-95e3.vercel.app/)",
@@ -111,8 +121,8 @@
             "repositorio": "https://github.com/brunoholanda/VieiraBarbearia-JOB"
         },
         {
-            "id": 12,
-            "image": "https://nerdking.net.br/wp-content/uploads/2023/04/nkcine.png",
+            "id": 13,
+            "image": "/assets/img/posts/nkcine.webp",
             "title": "NerdKing Tag",
             "summary": "Website to add favorite videos from NerdKing's YouTube channel, created to practice UseStates and learn to create a fake API",
             "post": "Developing a website to add favorite videos from NerdKing's YouTube channel is an excellent way to practice creating an application with UseStates in React and learn to create a fake API. This application can be very useful for users who want to save and organize their favorite videos from the channel. \n\n To make the platform more attractive and functional, React, a very popular JavaScript library for user interface development, was used. With React, it was possible to implement several interesting features on the site, such as using UseStates to favorite or unfavorite items on the page. \n\n UseStates are a React feature that allows the creation of state variables that can be modified over time. They are very useful for implementing dynamic functionalities on a website, such as updating information in real-time or changing colors and images when hovering over a product. \n\n ### What did I learn? \n\n My biggest learning in this project was the practice of JavaScript in React. Developing the feature to favorite and unfavorite for the first time was a big challenge. \n\n ### Technologies used: \n\n ReactJS • JavaScript • HTML • CSS • Git \n\n ### How to use? \n\n It is an intuitive landing page, and you can access its deployment [Clicking here](https://nktag-react-i64j.vercel.app/)",
@@ -121,8 +131,8 @@
             "repositorio": "https://github.com/brunoholanda/nktag-react"
         },
         {
-            "id": 13,
-            "image": "https://nerdking.net.br/wp-content/uploads/2024/05/lojadrop.jpg",
+            "id": 14,
+            "image": "/assets/img/posts/lojadrop.webp",
             "title": "E-Commerce",
             "summary": "This project is a dropshipping e-commerce developed with Shopify and integrated with various applications to optimize product...",
             "post": "Welcome to our brand new Dropshipping E-Commerce! 🌐🛍️\n\nWe have developed an intuitive and efficient platform for you to explore and purchase high-quality products with just a few clicks. Using the powerful Shopify platform, our site is packed with features that make online shopping simple and enjoyable.\n\n## What is Dropshipping?\n\nDropshipping is a business model where the store does not keep products in stock. Instead, when a customer places an order, the item is purchased from a third-party supplier and shipped directly to the customer. This allows offering a wide range of products without the need to manage inventory.\n\n## Why Choose Our E-Commerce?\n\n- **Ease of Use:** Navigate our site intuitively and easily find the products you want.\n- **Security:** Secure payment processes to protect your information.\n- **Variety:** A wide selection of high-quality products.\n- **Support:** Dedicated customer service to assist you at every step of your purchase.\n\n## Technologies Used\n\n- **Shopify:** Robust and reliable platform for creating online stores.\n- **Integrated Applications:** Tools to optimize product, order, and marketing management.\n- **Responsive Design:** Optimized browsing experience for all devices.\n\n## How It Works?\n\n1. **Browse the Site:** Explore our wide range of products.\n2. **Add to Cart:** Select the desired items and add them to your cart.\n3. **Checkout:** Complete your purchase quickly and securely.\n4. **Receive at Home:** Wait for your order to arrive comfortably at your home.\n\n👉 Visit our e-commerce now: [NerdKing Store](https://nerdkingloja.com.br)\n\nWant to know more about our platform and how we created this project? Check out our repository on Shopify: [Shopify](https://www.shopify.com/br)",
