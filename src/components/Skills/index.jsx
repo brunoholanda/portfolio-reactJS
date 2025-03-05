@@ -11,17 +11,26 @@ import wordpress from '../../public/assets/icons/wordpress.png';
 import node from '../../public/assets/icons/node.png';
 import styledc from '../../public/assets/icons/styled.png';
 import pg from '../../public/assets/icons/pg.svg';
+import aws from '../../public/assets/img/aws-badge.webp';
+import next from '../../public/assets/icons/next-js.svg';
+import nest from '../../public/assets/icons/nest.webp';
+import ts from '../../public/assets/icons/ts.webp';
+
 import { useLanguage } from 'Context/LanguageContext';
 
 export default function Skills() {
     const { language } = useLanguage();
 
     const habilidades = [
+        { imagem: aws, titulo: 'AWS' },
         { imagem: html, titulo: 'HTML' },
         { imagem: css, titulo: 'CSS' },
         { imagem: js, titulo: 'JavaScript' },
+        { imagem: ts, titulo: 'TyperScript' },
         { imagem: react, titulo: 'React' },
+        { imagem: next, titulo: 'Next' },
         { imagem: node, titulo: 'Node.js' },
+        { imagem: nest, titulo: 'NestJS' },
         { imagem: pg, titulo: 'PostgreSQL' },
         { imagem: sass, titulo: 'Sass' },
         { imagem: styledc, titulo: 'Styled Components' },

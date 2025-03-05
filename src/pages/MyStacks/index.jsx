@@ -1,4 +1,5 @@
 import styles from './MyStacks.module.scss';
+import aws from '../../public/assets/img/aws-badge.webp';
 import html from '../../public/assets/icons/html.svg';
 import css from '../../public/assets/icons/css.svg';
 import js from '../../public/assets/icons/js.svg';
@@ -9,19 +10,29 @@ import vscode from '../../public/assets/icons/vscode.svg';
 import github from '../../public/assets/icons/github-fill.svg';
 import wordpress from '../../public/assets/icons/wordpress.png';
 import next from '../../public/assets/icons/next-js.svg';
+import ts from '../../public/assets/icons/ts.webp';
+import nest from '../../public/assets/icons/nest.webp';
+import node from '../../public/assets/icons/node.png';
+import styledc from '../../public/assets/icons/styled.png';
+
 import { useState } from 'react';
 import eftest from '../../public/assets/img/certifcados/english-prof.jpg';
 import Botao from 'components/Btn';
 import { useLanguage } from 'Context/LanguageContext';
 export default function MyStacks() {
-    const { language } = useLanguage(); // Use o contexto de idioma
+    const { language } = useLanguage(); 
 
     const habilidades = [
+        { nome: "AWS", imagem: aws },
         { nome: "HTML", imagem: html },
         { nome: "CSS", imagem: css },
         { nome: "JavaScript", imagem: js },
+        { nome: "TyperScript", imagem: ts },
         { nome: "React", imagem: react },
         { nome: "Next", imagem: next },
+        { nome: "Styled Components", imagem: styledc },
+        { nome: "Node.js", imagem: node },
+        { nome: "NestJS", imagem: nest },
         { nome: "Sass", imagem: sass },
         { nome: "Git", imagem: git },
         { nome: "VS Code", imagem: vscode },

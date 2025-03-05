@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './About.module.scss';
+import aws from '../../public/assets/img/aws-cert.webp';
 import adm from '../../public/assets/img/certifcados/superioradm.jpg';
 import ads from '../../public/assets/img/certifcados/ads.jpg';
 import divisor from '../../public/assets/img/divisor-2.png';
@@ -10,8 +11,15 @@ import { useLanguage } from 'Context/LanguageContext';
 
 export default function About() {
     const { language } = useLanguage(); // Use o contexto de idioma
+    const [showAws, setShowAws] = useState(false);
+
     const [showAds, setShowAds] = useState(false);
     const [showAdm, setShowAdm] = useState(false);
+
+    function handleLinkClickAws(event) {
+        event.preventDefault();
+        setShowAws(true);
+    }
 
     function handleLinkClickAds(event) {
         event.preventDefault();
@@ -22,7 +30,10 @@ export default function About() {
         event.preventDefault();
         setShowAdm(true);
     }
-
+    
+    function handleCloseClickAws() {
+        setShowAws(false);
+    }
     function handleCloseClickAds() {
         setShowAds(false);
     }
@@ -117,6 +128,16 @@ export default function About() {
                 <div className={styles.sobre__formacao}>
                 <Titulo>{language === 'pt-br' ? 'Formação Acadêmica' : 'Education'}</Titulo>
                     <div className={styles.formacao}>
+                        <p>{language === 'pt-br' ? 'AWS Certified Cloud Practitioner' : 'AWS Certified Cloud Practitioner'}</p>
+                        <Botao><a href="#" onClick={handleLinkClickAws}>{language === 'pt-br' ? 'Ver Certificado' : 'View Certificate'}</a></Botao>
+                    </div>
+                    {showAws && (
+                        <div className={styles.imageContainer} onClick={handleCloseClickAws}>
+                            <img src={aws} alt={language === 'pt-br' ? 'AWS Certified Cloud Practitioner' : 'AWS Certified Cloud Practitioner'} />
+                        </div>
+                    )}
+                    <img className={styles.divisorImg} src={divisor} alt="divisor de experiencias" />
+                    <div className={styles.formacao}>
                         <p>{language === 'pt-br' ? 'Análise e Desenvolvimento de Sistemas - Unopar' : 'System Analysis and Development - Unopar'}</p>
                         <Botao><a href="#" onClick={handleLinkClickAds}>{language === 'pt-br' ? 'Ver Certificado' : 'View Certificate'}</a></Botao>
                     </div>
@@ -126,6 +147,7 @@ export default function About() {
                         </div>
                     )}
                     <img className={styles.divisorImg} src={divisor} alt="divisor de experiencias" />
+                   
                     <div className={styles.formacao}>
                         <p>{language === 'pt-br' ? 'Administração de Empresas e Negócios - IFPB' : 'Business Management - IFPB'}</p>
                         <Botao><a href="#" onClick={handleLinkClickAdm}>{language === 'pt-br' ? 'Ver Certificado' : 'View Certificate'}</a></Botao>
