@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './About.module.scss';
 import aws from '../../public/assets/img/aws-cert.webp';
 import adm from '../../public/assets/img/certifcados/superioradm.jpg';
-import ads from '../../public/assets/img/certifcados/ads.jpg';
+import ads from '../../public/assets/img/certifcados/ads.webp';
 import divisor from '../../public/assets/img/divisor-2.png';
 import Botao from 'components/Btn';
 import styled from 'styled-components';
