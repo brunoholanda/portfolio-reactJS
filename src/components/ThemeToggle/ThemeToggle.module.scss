@@ -1,0 +1,34 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-right: 0.35rem;
+  border: 1px solid var(--borda-suave);
+  border-radius: 999px;
+  background: var(--superficie-elevada);
+  color: var(--preto-texto);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  transition:
+    transform var(--transicao),
+    background var(--transicao),
+    border-color var(--transicao),
+    color var(--transicao);
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 161, 255, 0.35);
+    color: var(--accent-start);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-start);
+    outline-offset: 2px;
+  }
+
+  svg {
+    display: block;
+  }
+}

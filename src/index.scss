@@ -3,23 +3,85 @@
   --fonte-secundaria: 'DM Sans', sans-serif;
   --branco: #ffffff;
   --preto: #000000;
-  --cinza-texto: #666666;
+  --cinza-texto: #5c5f7a;
   --preto-texto: #42446E;
   --azul: #3f51b5;
+  --accent-start: #00A1FF;
+  --accent-end: #A100FF;
+  --accent-gradient: linear-gradient(115deg, var(--accent-start), var(--accent-end));
+  --superficie: #f7f8fc;
+  --superficie-elevada: #ffffff;
+  --superficie-suave: rgba(255, 255, 255, 0.72);
+  --header-bg: rgba(247, 248, 252, 0.88);
+  --borda-suave: rgba(66, 68, 110, 0.12);
+  --sombra-suave: 0 18px 40px rgba(66, 68, 110, 0.08);
+  --transicao: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  --icone-filtro: none;
+  --bg-glow-1: rgba(0, 161, 255, 0.12);
+  --bg-glow-2: rgba(161, 0, 255, 0.08);
+  --bg-glow-3: rgba(63, 81, 181, 0.06);
+  --menu-hover: #f1f1f1;
+  --overlay-projeto: linear-gradient(160deg, rgba(0, 161, 255, 0.72), rgba(161, 0, 255, 0.72));
 }
 
+[data-theme='dark'] {
+  --branco: #0b0d14;
+  --preto: #f5f7ff;
+  --cinza-texto: #a7adc4;
+  --preto-texto: #e8ebf7;
+  --azul: #7b8cff;
+  --accent-start: #38b6ff;
+  --accent-end: #c084fc;
+  --accent-gradient: linear-gradient(115deg, var(--accent-start), var(--accent-end));
+  --superficie: #0b0d14;
+  --superficie-elevada: #151925;
+  --superficie-suave: rgba(21, 25, 37, 0.88);
+  --header-bg: rgba(11, 13, 20, 0.9);
+  --borda-suave: rgba(168, 178, 214, 0.16);
+  --sombra-suave: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --icone-filtro: invert(1) brightness(1.15);
+  --bg-glow-1: rgba(56, 182, 255, 0.14);
+  --bg-glow-2: rgba(192, 132, 252, 0.12);
+  --bg-glow-3: rgba(123, 140, 255, 0.1);
+  --menu-hover: rgba(255, 255, 255, 0.06);
+  --overlay-projeto: linear-gradient(160deg, rgba(56, 182, 255, 0.78), rgba(192, 132, 252, 0.78));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: var(--fonte-principal);
-  background-color: #fbfbfb;
-  
+  color: var(--preto-texto);
+  background-color: var(--superficie);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 0% -10%, var(--bg-glow-1), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, var(--bg-glow-2), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, var(--bg-glow-3), transparent 55%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
 }

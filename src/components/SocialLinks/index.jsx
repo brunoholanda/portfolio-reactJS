@@ -2,10 +2,10 @@ import { useLanguage } from 'Context/LanguageContext';
 import styles from './SocialLinks.module.scss';
 import brflag from '../../public/assets/icons/BR.webp';
 import euflag from '../../public/assets/icons/eua.webp';
+import ThemeToggle from 'components/ThemeToggle';
+
 export default function SocialLinks() {
-
-    const { language, toggleLanguage } = useLanguage(); // Use o contexto de idioma
-
+    const { language, toggleLanguage } = useLanguage();
 
     return (
         <div className={styles.socialLinks}>
@@ -18,11 +18,19 @@ export default function SocialLinks() {
             <a href="https://wa.me/5583998150712" target="_blank" rel="noreferrer">
                 <div className={styles.socialLinks__wp}></div>
             </a>
+            <ThemeToggle />
             <div className={styles.languageSwitcher}>
-                <button onClick={toggleLanguage} className={styles.languageButton} title={language === 'pt-br' ? 'Switch to English' : 'Mudar para Português'}>
-                    <img src={language === 'pt-br' ? euflag : brflag} alt={language === 'pt-br' ? 'Switch to English' : 'Mudar para Português'} />
+                <button
+                    onClick={toggleLanguage}
+                    className={styles.languageButton}
+                    title={language === 'pt-br' ? 'Switch to English' : 'Mudar para Português'}
+                >
+                    <img
+                        src={language === 'pt-br' ? euflag : brflag}
+                        alt={language === 'pt-br' ? 'Switch to English' : 'Mudar para Português'}
+                    />
                 </button>
             </div>
         </div>
-    )
+    );
 }

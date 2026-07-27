@@ -1,66 +1,203 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import styles from './Post.module.scss';
-import Card from "components/Card"; // Certifique-se de que o caminho está correto
-import carregando from '../../public/assets/img/carregando.gif';
-import { useContent } from "hook/useContent";
-import Btn from "components/Btn";
+import Card from 'components/Card';
+import { useContent } from 'hook/useContent';
+
+function hasValidLink(url) {
+    if (!url || typeof url !== 'string') return false;
+    const normalized = url.trim().toLowerCase();
+    return (
+        normalized.startsWith('http') &&
+        !normalized.includes('nao disponivel') &&
+        !normalized.includes('não disponivel') &&
+        !normalized.includes('n/a')
+    );
+}
 
 export default function Post() {
-    const content = useContent(); // Use o hook useContent
+    const content = useContent();
     const [projeto, setProjeto] = useState(null);
+    const [notFound, setNotFound] = useState(false);
     const { id } = useParams();
-    const navegar = useNavigate ();
+    const navigate = useNavigate();
+    const isPt = content.language === 'pt-br';
+
+    const projetos = useMemo(() => {
+        if (isPt) return content.projetos || [];
+        return content.projects || content.projetos || [];
+    }, [isPt, content.projetos, content.projects]);
 
     useEffect(() => {
-        if (content.projetos || content.projects) {
-            const projetos = content.language === 'pt-br' ? content.projetos : content.projects;
-            const projetoEncontrado = projetos?.find(projeto => projeto.id === parseInt(id));
-            setProjeto(projetoEncontrado);
-        }
-    }, [id, content.language, content.projetos, content.projects]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [id]);
 
-    const projetosParaMostrar = content.language === 'pt-br' ? content.projetos : content.projects;
+    useEffect(() => {
+        if (!projetos.length) {
+            setProjeto(null);
+            setNotFound(false);
+            return;
+        }
+
+        const found = projetos.find((item) => item.id === parseInt(id, 10));
+        setProjeto(found || null);
+        setNotFound(!found);
+    }, [id, projetos]);
+
+    const related = useMemo(() => {
+        if (!projetos.length || !projeto) return [];
+
+        const others = projetos.filter((item) => item.id !== projeto.id);
+        const seed = projeto.id * 17;
+        return [...others]
+            .sort((a, b) => {
+                const scoreA = (a.id * seed) % 97;
+                const scoreB = (b.id * seed) % 97;
+                return scoreA - scoreB;
+            })
+            .slice(0, 3);
+    }, [projetos, projeto]);
+
+    const stacks = useMemo(() => {
+        if (!projeto?.stacks) return [];
+        return projeto.stacks
+            .split(',')
+            .map((stack) => stack.trim())
+            .filter(Boolean);
+    }, [projeto]);
+
+    const deployUrl = projeto?.deploy;
+    const repoUrl = projeto?.repositorio || projeto?.repository;
+    const showDeploy = hasValidLink(deployUrl);
+    const showRepo = hasValidLink(repoUrl);
 
     return (
-        <article className={styles.post}>
-            <div className={styles.post__botao} onClick={() => navegar(-1)}>
-                <Btn >{content.language === 'pt-br' ? 'Voltar' : 'Back'}</Btn>
+        <main className={styles.page}>
+            <div className={styles.toolbar}>
+                <button
+                    type="button"
+                    className={styles.back}
+                    onClick={() => navigate(-1)}
+                >
+                    ← {isPt ? 'Voltar' : 'Back'}
+                </button>
+                <Link to="/projetos" className={styles.toolbar__link}>
+                    {isPt ? 'Todos os projetos' : 'All projects'}
+                </Link>
             </div>
-            {projeto ? (
-                <div className={styles.post__artigo}>
-                    <img src={projeto.imagem || projeto.image} alt={projeto.titulo || projeto.title} />
-                    <h2>{projeto.titulo || projeto.title}</h2>
-                    <ReactMarkdown>
-                        {projeto.post.replace(/\\n/g, '\n')}
-                    </ReactMarkdown>
+
+            {!projeto && !notFound && (
+                <div className={styles.loading} role="status">
+                    <span className={styles.loading__pulse} aria-hidden />
+                    <p>{isPt ? 'Carregando projeto…' : 'Loading project…'}</p>
                 </div>
-            ) : (
-                <img src={carregando} alt="Carregando..." />
             )}
-            <h2>{content.language === 'pt-br' ? 'Veja mais projetos:' : 'See more projects:'}</h2>
-            <div className={styles.post__cards}>
-                {projetosParaMostrar && projetosParaMostrar.length > 0 ? (
-                    projetosParaMostrar
-                        .sort(() => Math.random() - 0.5)
-                        .slice(0, 3)
-                        .map(projeto => (
+
+            {notFound && (
+                <section className={styles.empty}>
+                    <h1>{isPt ? 'Projeto não encontrado' : 'Project not found'}</h1>
+                    <p>
+                        {isPt
+                            ? 'Esse case pode ter sido movido. Veja a lista completa de projetos.'
+                            : 'This case may have been moved. Browse the full project list.'}
+                    </p>
+                    <Link to="/projetos" className={`${styles.cta} ${styles.ctaPrimary}`}>
+                        {isPt ? 'Ver projetos' : 'View projects'}
+                    </Link>
+                </section>
+            )}
+
+            {projeto && (
+                <article className={styles.article}>
+                    <header className={styles.hero}>
+                        <p className={styles.eyebrow}>
+                            {isPt ? 'Case study' : 'Case study'}
+                        </p>
+                        <h1>{projeto.titulo || projeto.title}</h1>
+                        {(projeto.resumo || projeto.summary) && (
+                            <p className={styles.lead}>
+                                {projeto.resumo || projeto.summary}
+                            </p>
+                        )}
+
+                        {stacks.length > 0 && (
+                            <ul className={styles.stacks}>
+                                {stacks.map((stack) => (
+                                    <li key={stack}>{stack}</li>
+                                ))}
+                            </ul>
+                        )}
+
+                        {(showDeploy || showRepo) && (
+                            <div className={styles.actions}>
+                                {showDeploy && (
+                                    <a
+                                        className={`${styles.cta} ${styles.ctaPrimary}`}
+                                        href={deployUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {isPt ? 'Ver site' : 'View site'}
+                                    </a>
+                                )}
+                                {showRepo && (
+                                    <a
+                                        className={`${styles.cta} ${styles.ctaSecondary}`}
+                                        href={repoUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {isPt ? 'Repositório' : 'Repository'}
+                                    </a>
+                                )}
+                            </div>
+                        )}
+                    </header>
+
+                    <div className={styles.cover}>
+                        <img
+                            src={projeto.imagem || projeto.image}
+                            alt={projeto.titulo || projeto.title}
+                        />
+                    </div>
+
+                    <div className={styles.content}>
+                        <ReactMarkdown>
+                            {(projeto.post || '').replace(/\\n/g, '\n')}
+                        </ReactMarkdown>
+                    </div>
+                </article>
+            )}
+
+            {projeto && related.length > 0 && (
+                <section className={styles.related} aria-labelledby="related-title">
+                    <div className={styles.related__head}>
+                        <h2 id="related-title">
+                            {isPt ? 'Mais projetos' : 'More projects'}
+                        </h2>
+                        <p>
+                            {isPt
+                                ? 'Continue explorando outros cases em produção.'
+                                : 'Keep exploring other live cases.'}
+                        </p>
+                    </div>
+                    <div className={styles.related__grid}>
+                        {related.map((item) => (
                             <Card
-                                key={projeto.id}
-                                id={projeto.id}
-                                image={projeto.imagem || projeto.image}
-                                title={projeto.titulo || projeto.title}
-                                summary={projeto.resumo || projeto.summary}
-                                skills={projeto.stacks}
-                                project_link={projeto.deploy}
-                                repo_link={projeto.repositorio || projeto.repository}
+                                key={item.id}
+                                id={item.id}
+                                image={item.imagem || item.image}
+                                title={item.titulo || item.title}
+                                summary={item.resumo || item.summary}
+                                skills={item.stacks}
+                                project_link={item.deploy}
+                                repo_link={item.repositorio || item.repository}
                             />
-                        ))
-                ) : (
-                    <img src={carregando} alt="Carregando..." />
-                )}
-            </div>
-        </article>
+                        ))}
+                    </div>
+                </section>
+            )}
+        </main>
     );
 }

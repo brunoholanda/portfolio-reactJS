@@ -1,80 +1,173 @@
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './MyStacks.module.scss';
-import aws from '../../public/assets/img/aws-badge.webp';
-import html from '../../public/assets/icons/html.svg';
-import css from '../../public/assets/icons/css.svg';
-import js from '../../public/assets/icons/js.svg';
-import react from '../../public/assets/icons/react.svg';
-import sass from '../../public/assets/icons/sass.svg';
-import git from '../../public/assets/icons/git-icon.svg';
-import vscode from '../../public/assets/icons/vscode.svg';
-import github from '../../public/assets/icons/github-fill.svg';
-import wordpress from '../../public/assets/icons/wordpress.png';
-import next from '../../public/assets/icons/next-js.svg';
-import ts from '../../public/assets/icons/ts.webp';
-import nest from '../../public/assets/icons/nest.webp';
-import node from '../../public/assets/icons/node.png';
-import styledc from '../../public/assets/icons/styled.png';
-
-import { useState } from 'react';
 import eftest from '../../public/assets/img/certifcados/english-prof.jpg';
-import Botao from 'components/Btn';
 import { useLanguage } from 'Context/LanguageContext';
+import { useTheme } from 'Context/ThemeContext';
+import { skillCategories, skillsList } from 'components/Skills/skillsData';
+import { Link } from 'react-router-dom';
+
+function SkillIcon({ skill, isDark, className }) {
+    const Icon = skill.Icon;
+    const iconColor = skill.titulo === 'Fastify' && isDark ? '#E8EBF7' : skill.cor;
+
+    if (Icon) {
+        return <Icon className={className} style={{ color: iconColor }} aria-hidden />;
+    }
+
+    return <img src={skill.imagem} alt="" />;
+}
+
 export default function MyStacks() {
-    const { language } = useLanguage(); 
+    const { language } = useLanguage();
+    const { isDark } = useTheme();
+    const isPt = language === 'pt-br';
+    const [showEnglish, setShowEnglish] = useState(false);
 
-    const habilidades = [
-        { nome: "AWS", imagem: aws },
-        { nome: "HTML", imagem: html },
-        { nome: "CSS", imagem: css },
-        { nome: "JavaScript", imagem: js },
-        { nome: "TyperScript", imagem: ts },
-        { nome: "React", imagem: react },
-        { nome: "Next", imagem: next },
-        { nome: "Styled Components", imagem: styledc },
-        { nome: "Node.js", imagem: node },
-        { nome: "NestJS", imagem: nest },
-        { nome: "Sass", imagem: sass },
-        { nome: "Git", imagem: git },
-        { nome: "VS Code", imagem: vscode },
-        { nome: "GitHub", imagem: github },
-        { nome: "WordPress", imagem: wordpress },
-    ];
+    const closeEnglishModal = () => setShowEnglish(false);
 
-    const [showEftest, setShowEftest] = useState(false);
+    useEffect(() => {
+        if (!showEnglish) return undefined;
 
-    function handleLinkClick(event) {
-        event.preventDefault();
-        setShowEftest(true);
-    }
+        const onKeyDown = (event) => {
+            if (event.key === 'Escape') setShowEnglish(false);
+        };
 
-    function handleCloseClick() {
-        setShowEftest(false);
-    }
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', onKeyDown);
+
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, [showEnglish]);
+
+    const englishTitle = isPt ? 'Teste de proficiência em inglês' : 'English proficiency test';
+
+    const englishModal =
+        showEnglish &&
+        createPortal(
+            <div
+                className={styles.lightbox}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="english-modal-title"
+                onClick={closeEnglishModal}
+            >
+                <div
+                    className={styles.lightbox__panel}
+                    onClick={(event) => event.stopPropagation()}
+                >
+                    <div className={styles.lightbox__header}>
+                        <h3 id="english-modal-title">{englishTitle}</h3>
+                        <button
+                            type="button"
+                            className={styles.lightbox__close}
+                            onClick={closeEnglishModal}
+                            aria-label={isPt ? 'Fechar teste' : 'Close test'}
+                        >
+                            ×
+                        </button>
+                    </div>
+                    <div className={styles.lightbox__body}>
+                        <img src={eftest} alt={englishTitle} />
+                    </div>
+                    <div className={styles.lightbox__footer}>
+                        <button
+                            type="button"
+                            className={styles.lightbox__dismiss}
+                            onClick={closeEnglishModal}
+                        >
+                            {isPt ? 'Fechar' : 'Close'}
+                        </button>
+                    </div>
+                </div>
+            </div>,
+            document.body
+        );
 
     return (
-        <div className={styles.habilidades}>
-            <h2>{language === 'pt-br' ? 'Minhas Habilidades Tech' : 'My Tech Skills'}</h2>
-            <div className={styles.habilidades__icones}>
-                {habilidades.map((habilidade, index) => (
-                    <div key={index}>
-                        <img src={habilidade.imagem} alt={habilidade.nome} />
-                        <p>{habilidade.nome}</p>
-                    </div>
-                ))}
+        <main className={styles.page}>
+            <section className={styles.intro} aria-labelledby="skills-page-title">
+                <p className={styles.eyebrow}>
+                    {isPt ? 'O que eu domino' : 'What I work with'}
+                </p>
+                <h1 id="skills-page-title">
+                    {isPt ? 'Habilidades' : 'Skills'}
+                </h1>
+                <p className={styles.lead}>
+                    {isPt
+                        ? 'Stack organizada por área — do cloud ao mobile — com as ferramentas que uso para entregar em produção.'
+                        : 'A stack organized by area — from cloud to mobile — with the tools I use to ship in production.'}
+                </p>
+                <div className={styles.intro__actions}>
+                    <Link to="/projetos" className={`${styles.cta} ${styles.ctaPrimary}`}>
+                        {isPt ? 'Ver projetos' : 'View projects'}
+                    </Link>
+                    <Link to="/sobre" className={`${styles.cta} ${styles.ctaSecondary}`}>
+                        {isPt ? 'Minha trajetória' : 'My journey'}
+                    </Link>
+                </div>
+            </section>
+
+            <div className={styles.groups}>
+                {skillCategories.map((category) => {
+                    const items = skillsList.filter((skill) => skill.categoria === category.id);
+                    if (!items.length) return null;
+
+                    return (
+                        <section
+                            key={category.id}
+                            className={styles.group}
+                            aria-labelledby={`cat-${category.id}`}
+                        >
+                            <div className={styles.group__head}>
+                                <h2 id={`cat-${category.id}`}>
+                                    {isPt ? category.tituloPt : category.tituloEn}
+                                </h2>
+                                <p>{isPt ? category.descricaoPt : category.descricaoEn}</p>
+                            </div>
+                            <ul className={styles.grid}>
+                                {items.map((skill) => (
+                                    <li key={skill.titulo} className={styles.card}>
+                                        <SkillIcon
+                                            skill={skill}
+                                            isDark={isDark}
+                                            className={styles.card__icon}
+                                        />
+                                        <span>{skill.titulo}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+                    );
+                })}
             </div>
 
-            <div className={styles.habilidades__idioma}>
-                <h2>{language === 'pt-br' ? 'Segundo Idioma' : 'Second Language'}</h2>
-                <div className={styles.idioma}>
-                    <p>{language === 'pt-br' ? 'Inglês Avançado - Consigo me comunicar, ler e entender bem!' : 'Advanced English - I can communicate, read, and understand well!'}</p>
-                    <Botao><a href="#" onClick={handleLinkClick}>{language === 'pt-br' ? 'Ver Teste' : 'View Test'}</a></Botao>
+            <section className={styles.idioma} aria-labelledby="language-title">
+                <div className={styles.idioma__content}>
+                    <p className={styles.eyebrow}>
+                        {isPt ? 'Comunicação' : 'Communication'}
+                    </p>
+                    <h2 id="language-title">
+                        {isPt ? 'Segundo idioma' : 'Second language'}
+                    </h2>
+                    <p>
+                        {isPt
+                            ? 'Inglês avançado — consigo me comunicar, ler documentação e participar de discussões técnicas com segurança.'
+                            : 'Advanced English — I can communicate, read docs and join technical discussions with confidence.'}
+                    </p>
+                    <button
+                        type="button"
+                        className={styles.idioma__action}
+                        onClick={() => setShowEnglish(true)}
+                    >
+                        {isPt ? 'Ver teste de proficiência' : 'View proficiency test'}
+                    </button>
                 </div>
-            </div>
-            {showEftest && (
-                <div className={styles.imageContainer} onClick={handleCloseClick}>
-                    <img src={eftest} alt={language === 'pt-br' ? 'Certificado de Administração' : 'English Proficiency Certificate'} />
-                </div>
-            )}
-        </div>
+            </section>
+
+            {englishModal}
+        </main>
     );
 }

@@ -3,13 +3,13 @@ import HamburgerMenu from 'hamburger-react';
 import styles from './MenuMobile.module.scss';
 import { Link } from 'react-router-dom';
 import { GoDownload } from "react-icons/go";
-import brflag from '../../public/assets/icons/BR.webp';
-import euflag from '../../public/assets/icons/eua.webp';
 import { useLanguage } from 'Context/LanguageContext';
+import { useTheme } from 'Context/ThemeContext';
 
 export default function MenuMobile() {
     const [isOpen, setOpen] = useState(false);
-    const { language } = useLanguage(); // Use o contexto de idioma
+    const { language } = useLanguage();
+    const { isDark } = useTheme();
 
     const toggleMenu = () => {
         setOpen(!isOpen);
@@ -21,12 +21,12 @@ export default function MenuMobile() {
 
     return (
         <>
-            <nav>
+            <nav className={styles.mobileNav}>
                 <HamburgerMenu
                     toggled={isOpen}
                     toggle={toggleMenu}
-                    color="#3f51b5"
-                    size={60}
+                    color={isDark ? '#e8ebf7' : '#3f51b5'}
+                    size={48}
                 />
             </nav>
             {isOpen && (
@@ -50,10 +50,10 @@ export default function MenuMobile() {
                         <li>{language === 'pt-br' ? 'Hobbies' : 'Hobbies'}</li>
                     </Link>
                     <div className={styles.mobileMenu__cv}>
-                        <a href="https://drive.google.com/file/d/1Z-hbH7P_nEInGMWRML6JBaOtSDma5DVx/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV BR</a>
+                        <a href="https://drive.google.com/file/d/1-R9jxd51oo7prkAWmcfHh1bITrzq1pEZ/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV BR</a>
                     </div>
                     <div className={styles.mobileMenu__cv}>
-                        <a href="https://drive.google.com/file/d/1pjMWjYA1uJ4z_NdWRwxR1Jw0YnqnspHc/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV EUA</a>
+                        <a href="https://drive.google.com/file/d/1KcMfJEVAf05Aiy9oYjDXeJpMgj9b59DG/view?usp=sharing" rel="noreferrer" target="_blank"><GoDownload /> CV EUA</a>
                     </div>
 
                 </ul>

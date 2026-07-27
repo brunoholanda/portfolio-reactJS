@@ -1,46 +1,153 @@
-.hobbies {
-    margin: 4em 8em;
-
-    h1, h2 {
-        color: var(--preto-texto);
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
     }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem clamp(1.5rem, 5vw, 5rem) 3rem;
+    animation: fadeUp 0.7s var(--transicao, ease) both;
+}
+
+.eyebrow {
+    margin: 0 0 0.65rem;
+    font-family: var(--fonte-secundaria);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cinza-texto);
+}
+
+.intro {
+    margin-bottom: 2.75rem;
 
     h1 {
-        font-size: 3rem;
+        margin: 0 0 1rem;
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
-    h2 {
-        font-size: 2rem;
+    &__story {
+        max-width: 42rem;
+        margin: 0 0 1.25rem;
+
+        p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--cinza-texto);
+        }
     }
 
-    p {
-        color: var(--cinza-texto);
-        font-size: 1.2rem;
-    }
-
-    &__cards {
+    &__meta {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-around;
+        gap: 0.75rem 1.5rem;
+        font-family: var(--fonte-secundaria);
+        font-size: 0.95rem;
+        color: var(--cinza-texto);
+    }
+
+    &__link {
+        font-weight: 500;
+        text-decoration: none;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        transition: opacity var(--transicao);
+
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+}
+
+.lead {
+    margin: 0 0 1.25rem;
+    max-width: 40rem;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--preto-texto);
+    font-weight: 500;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 1.75rem;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    color: var(--cinza-texto);
+
+    &__pulse {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: var(--accent-gradient);
+        animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    p {
+        margin: 0;
+        font-family: var(--fonte-secundaria);
     }
 }
 
 @media screen and (max-width: 768px) {
-    .hobbies {
-        margin: 2em 2em;
-    
-        h1 {
-            font-size: 2rem;
+    .page {
+        padding: 1.5rem 1.25rem 2rem;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        .lead,
+        &__story {
+            margin-left: auto;
+            margin-right: auto;
         }
-    
-        h2 {
-            font-size: 1.5rem;
-        }
-    
-        p {
-            color: var(--cinza-texto);
-            font-size: 1rem;
+
+        &__meta {
+            justify-content: center;
         }
     }
 }

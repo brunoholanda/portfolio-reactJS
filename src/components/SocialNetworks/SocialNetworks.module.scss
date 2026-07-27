@@ -1,47 +1,54 @@
-.contato {
+.redes {
+    margin: 2rem 0;
 
-    margin:  0 auto;
-    
-    h1,h2, p {
+    h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+        font-weight: 700;
         color: var(--preto-texto);
     }
 
-
-
-    &__meios {
-
-        h2 {
-            font-size: 1.63rem;
-        }
-    
-        p {
-            font-size: 1.25rem;
-        }
+    &__lista {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 
-    &__redes {
-        img {
-            width: 40px;
-            height: 40px;
-            margin: 0 1rem 0 0;
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        min-height: 2.75rem;
+        padding: 0.55rem 1rem;
+        border-radius: 12px;
+        background: var(--superficie-suave);
+        border: 1px solid var(--borda-suave);
+        text-decoration: none;
+        color: var(--preto-texto);
+        font-family: var(--fonte-secundaria);
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: transform var(--transicao), border-color var(--transicao), color var(--transicao),
+            box-shadow var(--transicao);
+
+        svg {
+            width: 1.15rem;
+            height: 1.15rem;
+            color: var(--preto-texto);
+            transition: color var(--transicao);
         }
-    }
 
-}
+        &:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 161, 255, 0.35);
+            box-shadow: var(--sombra-suave);
+            color: var(--accent-start);
 
-@media screen and (max-width: 768px) {
-    .contato {
-        margin: 1em 2em;
-        text-align: center;
-
-        &__meios {
-
-            h2 {
-                font-size: 1.25rem;
-            }
-        
-            p {
-                font-size: 1rem;
+            svg {
+                color: var(--accent-start);
             }
         }
     }

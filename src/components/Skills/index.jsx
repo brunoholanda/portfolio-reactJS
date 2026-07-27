@@ -1,54 +1,67 @@
+import { useState } from 'react';
 import styles from './Skills.module.scss';
-import html from '../../public/assets/icons/html.svg';
-import css from '../../public/assets/icons/css.svg';
-import js from '../../public/assets/icons/js.svg';
-import react from '../../public/assets/icons/react.svg';
-import sass from '../../public/assets/icons/sass.svg';
-import git from '../../public/assets/icons/git-icon.svg';
-import vscode from '../../public/assets/icons/vscode.svg';
-import github from '../../public/assets/icons/github-fill.svg';
-import wordpress from '../../public/assets/icons/wordpress.png';
-import node from '../../public/assets/icons/node.png';
-import styledc from '../../public/assets/icons/styled.png';
-import pg from '../../public/assets/icons/pg.svg';
-import aws from '../../public/assets/img/aws-badge.webp';
-import next from '../../public/assets/icons/next-js.svg';
-import nest from '../../public/assets/icons/nest.webp';
-import ts from '../../public/assets/icons/ts.webp';
-
 import { useLanguage } from 'Context/LanguageContext';
+import { useTheme } from 'Context/ThemeContext';
+import { skillsList } from './skillsData';
 
 export default function Skills() {
     const { language } = useLanguage();
-
-    const habilidades = [
-        { imagem: aws, titulo: 'AWS' },
-        { imagem: html, titulo: 'HTML' },
-        { imagem: css, titulo: 'CSS' },
-        { imagem: js, titulo: 'JavaScript' },
-        { imagem: ts, titulo: 'TyperScript' },
-        { imagem: react, titulo: 'React' },
-        { imagem: next, titulo: 'Next' },
-        { imagem: node, titulo: 'Node.js' },
-        { imagem: nest, titulo: 'NestJS' },
-        { imagem: pg, titulo: 'PostgreSQL' },
-        { imagem: sass, titulo: 'Sass' },
-        { imagem: styledc, titulo: 'Styled Components' },
-        { imagem: git, titulo: 'Git' },
-        { imagem: vscode, titulo: 'VSCode' },
-        { imagem: github, titulo: 'GitHub' },
-        { imagem: wordpress, titulo: 'WordPress' },
-    ];
+    const { isDark } = useTheme();
+    const isPt = language === 'pt-br';
+    const [expanded, setExpanded] = useState(false);
 
     return (
-        <div className={styles.habilidades}>
-            <h2>{language === 'pt-br' ? 'Minhas Habilidades Tech' : 'My Tech Skills'}</h2>
-            <p>{language === 'pt-br' ? 'Tecnologias que eu venho trabalhando...' : 'Technologies I have been working with...'}</p>
-            <div className={styles.habilidades__icones}>
-                {habilidades.map((habilidade, index) => (
-                    <img key={index} src={habilidade.imagem} alt={habilidade.titulo} title={habilidade.titulo} />
-                ))}
+        <section className={styles.habilidades} aria-labelledby="skills-title">
+            <h2 id="skills-title">{isPt ? 'Stack que uso no dia a dia' : 'Stack I use day to day'}</h2>
+            <p>
+                {isPt
+                    ? 'Ferramentas com as quais entrego produtos em produção.'
+                    : 'Tools I use to ship products in production.'}
+            </p>
+            <div
+                className={`${styles.habilidades__frame} ${
+                    expanded ? '' : styles.habilidades__frameCollapsed
+                }`}
+            >
+                <ul className={styles.habilidades__icones}>
+                    {skillsList.map((habilidade) => {
+                        const Icon = habilidade.Icon;
+                        const iconColor =
+                            habilidade.titulo === 'Fastify' && isDark
+                                ? '#E8EBF7'
+                                : habilidade.cor;
+
+                        return (
+                            <li key={habilidade.titulo} className={styles.habilidades__item}>
+                                {Icon ? (
+                                    <Icon
+                                        className={styles.habilidades__icon}
+                                        style={{ color: iconColor }}
+                                        aria-hidden
+                                    />
+                                ) : (
+                                    <img src={habilidade.imagem} alt="" />
+                                )}
+                                <span>{habilidade.titulo}</span>
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
-        </div>
+            <button
+                type="button"
+                className={styles.habilidades__toggle}
+                onClick={() => setExpanded((value) => !value)}
+                aria-expanded={expanded}
+            >
+                {expanded
+                    ? isPt
+                        ? 'Ver menos'
+                        : 'Show less'
+                    : isPt
+                      ? 'Ver todas'
+                      : 'See all'}
+            </button>
+        </section>
     );
 }

@@ -4,6 +4,7 @@ import './index.scss';
 import AppRoutes from 'routes';
 import { hotjar } from 'react-hotjar';
 import { LanguageProvider } from 'Context/LanguageContext';
+import { ThemeProvider } from 'Context/ThemeContext';
 import useGeoLanguage from 'hook/useGeoLanguage';
 
 const hotjarId = '4997618';
@@ -20,10 +21,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <LanguageProvider>
-      <GeoLanguageWrapper>
-        <AppRoutes />
-      </GeoLanguageWrapper>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <GeoLanguageWrapper>
+          <AppRoutes />
+        </GeoLanguageWrapper>
+      </LanguageProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

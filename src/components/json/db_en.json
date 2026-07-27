@@ -1,6 +1,66 @@
 {
     "projects": [
         {
+            "id": 15,
+            "image": "/assets/img/posts/offroad-r.png",
+            "title": "OffRoad-R — Adventure marketplace",
+            "summary": "Full marketplace (web + iOS + Android) connecting off-road equipment owners with people who want to rent adventures on demand. I led the project through MVP for the U.S. market.",
+            "post": "**OffRoad-R: Adventure On Demand** is a full outdoor adventure rental marketplace — with web pages and native iOS/Android apps — connecting people who own equipment (ATVs, UTVs, kayaks, boats, and more) with people who want that kind of experience.\n\nBuilt for the U.S. market, the product covers the full journey: adventure discovery, bookings, payments, partner management, and mobile UX. The marketing site is at [offroad-r.com](https://offroad-r.com/), the customer web app at [customer.offroad-r.com](https://customer.offroad-r.com/), plus apps on the [Apple App Store](https://apps.apple.com/us/app/offroad-r/id6751864369) and [Google Play](https://play.google.com/store/apps/details?id=com.offroadr.app).\n\n### My role\n\nI led the project through MVP conception and delivery: product alignment, technical decisions, architecture, and fullstack execution. It was a chance to lead a U.S.-facing product, strengthen English in day-to-day work, and apply cloud techniques for scalable, lower-cost, on-demand infrastructure.\n\n### What the product delivers\n\n- Partner / peer marketplace to list and rent equipment and experiences\n- iOS and Android apps for discovery and booking\n- Web apps (marketing + customer) for conversion and operations\n- Booking flows, near real-time availability, and reservation management\n- Categories across land, water, air, and snow (ATV, UTV, kayak, boating, snow, and more)\n\n### What did I learn?\n\nTechnical leadership through MVP, English communication with U.S. stakeholders, and cloud architecture (serverless / on-demand) to scale without high fixed cost. Strengthened the full cycle: mobile, web, backend, and AWS.\n\n### Technologies used:\n\nReact Native • React • NestJS • AWS Cloud • AWS Lambda • Amazon Cognito • APIs • Git\n\n### How to explore?\n\n- Website: [https://offroad-r.com/](https://offroad-r.com/)\n- Customer web: [https://customer.offroad-r.com/](https://customer.offroad-r.com/)\n- iOS: [App Store](https://apps.apple.com/us/app/offroad-r/id6751864369)\n- Android: [Google Play](https://play.google.com/store/apps/details?id=com.offroadr.app)\n\nPrivate repository (source code is not public).",
+            "stacks": "React Native, React, NestJS, AWS, Lambda, Cognito, Cloud",
+            "deploy": "https://offroad-r.com/",
+            "repositorio": "Nao disponivel"
+        },
+        {
+            "id": 16,
+            "image": "/assets/img/posts/pdf-studio.png",
+            "title": "PDF Studio — Online PDF editor",
+            "summary": "A free, fast, private in-browser PDF editor, compressor and signer. Born from frustration with tools that charge for basics; Next.js frontend only, monetized with Google Ads.",
+            "post": "**PDF Studio** is a complete toolkit to manipulate PDFs for free — simple and fast: edit text, sign, merge, split, compress, annotate, insert images and export — all in the browser, with nothing to install.\n\nLive at [pdf.brunoholanda.com](https://pdf.brunoholanda.com/). Processing happens on the user’s device (frontend only), so files don’t need to leave the computer for editing — better privacy for contracts and sensitive docs.\n\n### Why it exists\n\nThe project started from my frustration with sites that charge for basic PDF tasks. I come from a time when you could do almost everything online for free — and I wanted to bring that freedom back: a useful, accessible editor without friction.\n\n### What the product delivers\n\n- Edit native PDF text (formatting, multiline, repositioning)\n- Sign online (draw or type)\n- Merge, split, compress and organize pages\n- Annotations, highlights, shapes, images, header/footer\n- Editor UX with shortcuts, zoom, undo/redo and download\n\n### Architecture and monetization\n\nBuilt with **Next.js** as a **frontend-only** app. Monetization uses **Google Ads**, keeping the core experience free instead of locking essentials behind a paywall.\n\n### What did I learn?\n\nShipping a SaaS-like product focused on client-side UX and performance, SEO for search intents (edit/compress/sign PDF), and a sustainable model that doesn’t charge users for the essential feature.\n\n### Technologies used:\n\nNext.js • React • JavaScript • Frontend • Google AdSense / Ads • Git\n\n### How to use?\n\nGo to [https://pdf.brunoholanda.com/](https://pdf.brunoholanda.com/), open the editor, pick a PDF and edit, sign, merge or compress. Then download — everything runs locally in the browser.\n\nPrivate repository (source code is not public).",
+            "stacks": "Next.js, React, JavaScript, Frontend, Google Ads",
+            "deploy": "https://pdf.brunoholanda.com/",
+            "repositorio": "Nao disponivel"
+        },
+        {
+            "id": 17,
+            "image": "/assets/img/posts/dev-tools.png",
+            "title": "Dev Tools — Utilities for developers and QA",
+            "summary": "Free in-browser hub of generators, converters and utilities — CPF, ZIP/CEP, UUID, image compression, short URLs, site analysis and more. React + Vite, with SEO for Google indexing.",
+            "post": "**Dev Tools** is a practical toolkit for developers and QA testers: free generators, converters and utilities — all in the browser, with nothing to install.\n\nLive at [tools.brunoholanda.com](https://tools.brunoholanda.com/). It started from my own need as a developer to open a different site for every small task. Here, many tools live in one place.\n\n### What you get\n\n- Data generators: CPF, CNPJ, CEP/ZIP-like data, UUID and more\n- Image compression and optimization (PNG, JPG, WebP)\n- Short URL generator\n- Site analysis and network/text/document utilities\n- Filterable categories (Popular, Development, Security, Converter, etc.) and fast search\n\n### Stack and SEO\n\nBuilt with **React + Vite**, using **SEO** techniques for Google indexing (pages and search intents like CPF generator, UUID, QR Code and developer utilities).\n\n### What did I learn?\n\nShipping a productivity-focused product: catalog UX plus tools, client-side performance, and SEO for organic discovery — without juggling dozens of external sites in the daily workflow.\n\n### Technologies used:\n\nReact • Vite • JavaScript • SEO • Frontend • Git\n\n### How to use?\n\nGo to [https://tools.brunoholanda.com/](https://tools.brunoholanda.com/), search or filter by category, and open what you need — CPF, UUID, image compression, short URLs and more.\n\nPrivate repository (source code is not public).",
+            "stacks": "React, Vite, JavaScript, SEO, Frontend",
+            "deploy": "https://tools.brunoholanda.com/",
+            "repositorio": "Nao disponivel"
+        },
+        {
+            "id": 19,
+            "image": "/assets/img/posts/newsfeed.png",
+            "title": "News Feed — Custom dashboard",
+            "summary": "A customizable news feed to stay updated without spending hours on Instagram or Google. Categories, favorites, theme toggle and fullscreen — great as a second-screen news panel.",
+            "post": "**News Feed** is a custom dashboard to follow what matters without scrolling Instagram or Google for hours.\n\nIt started from friends who wanted a clearer way to stay informed. Live at [tools.brunoholanda.com/newsfeed](https://tools.brunoholanda.com/newsfeed), inside the Dev Tools ecosystem.\n\n### What users can do\n\n- Pick the news category (and source) they want to see\n- Favorite stories and filter by All / Favorites / Unread\n- Switch theme (light/dark) for comfort\n- Go fullscreen and use it on a second screen as a general news panel\n- Auto-refresh, list or grid view, share/copy/open links\n\n### Why it exists\n\nReplace endless scroll with a focused dashboard: less noise, more control over what appears on screen — useful day to day and as a “news TV” on a secondary monitor.\n\n### What did I learn?\n\nDesigning an information-consumption product with panel UX: filters, read state, favorites and a fullscreen mode meant for continuous use.\n\n### Technologies used:\n\nReact • Vite • JavaScript • Frontend • UX • Git\n\n### How to use?\n\nOpen [https://tools.brunoholanda.com/newsfeed](https://tools.brunoholanda.com/newsfeed), choose category/source, favorite what matters and optionally enable fullscreen on a second screen.\n\nPrivate repository (source code is not public).",
+            "stacks": "React, Vite, JavaScript, Frontend, UX",
+            "deploy": "https://tools.brunoholanda.com/newsfeed",
+            "repositorio": "Nao disponivel"
+        },
+        {
+            "id": 20,
+            "image": "/assets/img/posts/quiosque.png",
+            "title": "Kiosk — Campaigns on screens",
+            "summary": "A system to create marketing campaigns with videos and images and generate a link to play on a display panel. Built for EV charger owners who monetize ads on charger screens.",
+            "post": "**Kiosk (Quiosque)** is a campaign system for digital panels: users build campaigns with videos and images, then get a link to open on the display that plays the content.\n\nLive at [quiosque.brunoholanda.com](https://quiosque.brunoholanda.com/login). It was created for EV charger owners — stations with screens that show (and charge for) ads while people charge.\n\n### How it works\n\n- Create and manage campaigns (new, edit, delete)\n- Add media: images and videos per campaign\n- Copy the campaign link and open it on the charger kiosk/panel\n- Preview and organize what will appear on screen\n\n### Problem it solves\n\nEV station operators need to update on-screen ads without a painful manual process. With Quiosque, campaigns live in the admin panel and the display only needs the generated link.\n\n### What did I learn?\n\nDesigning a simple CMS + player flow: media management in the backoffice and reliable playback on the panel, aimed at real monetization of screens on EV chargers.\n\n### Technologies used:\n\nReact • JavaScript • Frontend • Panel UX • Git\n\n### How to explore?\n\nVisit [https://quiosque.brunoholanda.com/login](https://quiosque.brunoholanda.com/login), create campaigns with videos/images and use the generated link on the display panel.\n\nPrivate repository (source code is not public).",
+            "stacks": "React, JavaScript, Frontend, Marketing Digital",
+            "deploy": "https://quiosque.brunoholanda.com/login",
+            "repositorio": "Nao disponivel"
+        },
+        {
+            "id": 18,
+            "image": "/assets/img/posts/codigo-partida.png",
+            "title": "Código de Partida — Sales landing page",
+            "summary": "High-converting sales page for the Código de Partida course: speed, urgency, marketing colors and strong CTAs. Built with React Native, indexed on Google with modern SEO patterns.",
+            "post": "The **Código de Partida** sales page was built to load extremely fast and turn clicks into purchases — with urgency, clear visual hierarchy and prominent CTAs.\n\nLive at [curso.brunoholanda.com](https://curso.brunoholanda.com/). The course teaches programming from scratch (HTML, CSS, JavaScript and React), focused on practice, career and freelancing.\n\n### Conversion-first design\n\n- Offer countdown and urgency cues to drive decisions\n- Bold marketing colors (high-energy orange) for attention and action\n- Direct hero + primary CTA (“Start now”) above the fold\n- Benefit blocks that reinforce value (+200 lessons, lifetime access, Dev career, freelancing)\n- Visual flow designed to reduce friction and boost CTA clicks\n\n### Stack and discoverability\n\nBuilt with **React Native** (web), tuned for performance and **indexed on Google** with modern SEO patterns — to reach people searching to learn programming from zero.\n\n### What did I learn?\n\nApplying digital marketing to UI: urgency, contrast, copy and CTA without sacrificing load speed. Connecting an education product with a sales page that actually converts.\n\n### Technologies used:\n\nReact Native • JavaScript • Marketing / CRO • SEO • Performance • Git\n\n### How to explore?\n\nVisit [https://curso.brunoholanda.com/](https://curso.brunoholanda.com/) to see the full page — from the timed offer to the enrollment CTA.\n\nPrivate repository (source code is not public).",
+            "stacks": "React Native, Marketing, SEO, Frontend, Performance",
+            "deploy": "https://curso.brunoholanda.com/",
+            "repositorio": "Nao disponivel"
+        },
+        {
             "id": 1,
             "image": "/assets/img/posts/vendas.webp",
             "titulo": "Sales Page",

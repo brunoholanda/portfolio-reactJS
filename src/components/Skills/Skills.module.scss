@@ -1,83 +1,136 @@
 .habilidades {
     text-align: center;
-    margin: 4em 6em;
+    max-width: 1100px;
+    margin: 0 auto 4.5rem;
+    padding: 0 clamp(1.5rem, 4vw, 3rem);
 
     h2 {
-        font-size: 2.5rem;
-        line-height: 1.63rem;
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        line-height: 1.2;
         font-weight: 700;
         color: var(--preto-texto);
-        margin-bottom: 1em;
     }
 
     p {
+        margin: 0 auto 2rem;
+        max-width: 36rem;
         font-weight: 400;
-        font-size: 2rem;
-        line-height: 1.63rem;
+        font-size: clamp(1rem, 1.6vw, 1.2rem);
+        line-height: 1.55;
         color: var(--cinza-texto);
-        margin-bottom: 2em;
+    }
+
+    &__frame {
+        position: relative;
+        transition: max-height 0.35s ease;
+    }
+
+    &__frameCollapsed {
+        max-height: calc(2rem + 48px + 0.65rem + 1.35rem + 2px);
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2.25rem;
+            pointer-events: none;
+            background: linear-gradient(to top, var(--superficie), transparent);
+        }
     }
 
     &__icones {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2em;
-        margin: 0 15rem;
-        
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 
-        img {
-            width: 80px;
-            height: 80px;
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 1rem 0.75rem;
+        border-radius: 14px;
+        background: var(--superficie-suave);
+        border: 1px solid var(--borda-suave);
+        transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao);
+
+        img,
+        .habilidades__icon {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .habilidades__icon {
+            display: block;
+            flex-shrink: 0;
+        }
+
+        span {
+            font-family: var(--fonte-secundaria);
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--cinza-texto);
+            line-height: 1.2;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-suave);
+            border-color: rgba(0, 161, 255, 0.28);
         }
     }
-}
 
-@media screen and (max-width: 1024px) {
-    .habilidades { 
-        margin: 1em 2em;
-        
-        h2 {
-            font-size: 2.38rem;
-            line-height: 2.19rem;
-        }
+    &__toggle {
+        margin-top: 1.25rem;
+        min-height: 2.5rem;
+        padding: 0.55rem 1.25rem;
+        border: 1px solid var(--borda-suave);
+        border-radius: 8px;
+        background: var(--superficie-elevada);
+        color: var(--preto-texto);
+        font-family: var(--fonte-secundaria);
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: transform var(--transicao), border-color var(--transicao), box-shadow var(--transicao);
 
-        p {
-            font-size: 1.75rem;
-        }
-
-        &__icones {
-            gap: 1em;
-            margin: 0 8rem;
-
-
-            img {
-                width: 80px;
-                height: 80px;
-            }
+        &:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 161, 255, 0.35);
+            box-shadow: var(--sombra-suave);
         }
     }
 }
 
 @media screen and (max-width: 768px) {
-    .habilidades { 
-        margin: 1em 2em;
-        
-        h2 {
-            font-size: 1.82rem;
-        }
+    .habilidades {
+        margin-bottom: 3rem;
 
-        p {
-            font-size: 1.25rem;
+        &__frameCollapsed {
+            max-height: calc(1.7rem + 40px + 0.65rem + 1.25rem + 2px);
         }
 
         &__icones {
-            gap: 1em;
-            margin: 0 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 0.75rem;
+        }
 
-            img {
-                width: 80px;
-                height: 80px;
+        &__item {
+            padding: 0.85rem 0.5rem;
+
+            img,
+            .habilidades__icon {
+                width: 40px;
+                height: 40px;
             }
         }
     }

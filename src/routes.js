@@ -1,9 +1,17 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Navigate, Route, Routes, HashRouter, useLocation } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  BrowserRouter,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { hotjar } from 'react-hotjar';
 import Loading from 'components/Loading';
 import FloatingButton from 'components/FloatingButton';
 import CourseVideo from 'pages/Members/CourseVideo';
+import NewHome from 'pages/NewHome';
 
 const Contact = lazy(() => import('pages/Contact'));
 const Hobbies = lazy(() => import('pages/Hobbies'));
@@ -22,8 +30,37 @@ const PageBodyMembers = lazy(() => import('pages/Members/PageBodyMembers'));
 const MembersArea = lazy(() => import('pages/Members'));
 const CourseDetails = lazy(() => import('pages/Members/CourseDetails'));
 
-
 const Authentication = lazy(() => import('pages/Auth'));
+
+/** Redirects legacy hash URLs (/#/contato) to path URLs (/contato). */
+function HashRedirect() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const { hash } = window.location;
+    if (!hash.startsWith('#/')) return;
+
+    const path = hash.slice(1) || '/';
+    window.history.replaceState(null, '', path);
+    navigate(path, { replace: true });
+  }, [navigate]);
+
+  return null;
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 function AppRoutes() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -37,27 +74,9 @@ function AppRoutes() {
     hotjar.initialize(4997618, 6);
   }, []);
 
-  function ScrollToTop() {
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
-
-    }, [pathname]);
-
-    return null;
-  }
-
-  const handleChatbotClick = () => {
-    alert('Chatbot iniciado!');
-  };
-
   return (
-    <HashRouter>
+    <BrowserRouter>
+      <HashRedirect />
       <ScrollToTop />
       <Suspense fallback={<Loading />}>
         <Routes>
@@ -69,6 +88,7 @@ function AppRoutes() {
             <Route path="/projetos/:id" element={<Post />} />
             <Route path="/contato" element={<Contact />} />
             <Route path="/hobbies" element={<Hobbies />} />
+            <Route path="/newhome" element={<NewHome />} />
 
             <Route
               path="/operador"
@@ -86,20 +106,16 @@ function AppRoutes() {
             />
             <Route path="*" element={<NotFound />} />
           </Route>
-          <Route  element={<PageBodyMembers />}>
+          <Route element={<PageBodyMembers />}>
             <Route path="/area-de-mebros" element={<MembersArea />} />
             <Route path="/course-details" element={<CourseDetails />} />
             <Route path="/course-video" element={<CourseVideo />} />
-
           </Route>
           <Route path="/ebookgratis" element={<CapturePage />} />
-
         </Routes>
-
-
       </Suspense>
-      <FloatingButton onClick={handleChatbotClick} />
-    </HashRouter>
+      <FloatingButton />
+    </BrowserRouter>
   );
 }
 

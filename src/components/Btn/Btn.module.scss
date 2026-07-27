@@ -1,13 +1,15 @@
 .btn {
-    background-color: var(--azul);
+    background: var(--accent-gradient, linear-gradient(115deg, #00A1FF, #A100FF));
     color: var(--branco);
     font-family: var(--fonte-secundaria);
     font-weight: 500;
-    transition: 0.5s ease;
-
+    border: none;
+    cursor: pointer;
+    transition: transform var(--transicao, 0.35s ease), box-shadow var(--transicao, 0.35s ease);
+    box-shadow: 0 8px 20px rgba(0, 161, 255, 0.2);
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 26px rgba(161, 0, 255, 0.22);
 }

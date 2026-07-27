@@ -1,6 +1,7 @@
 .gradiente {
-    background: linear-gradient(to right, #00A1FF, #A100FF); // Ajuste as cores conforme necessário
+    background: var(--accent-gradient, linear-gradient(115deg, #00A1FF, #A100FF));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
   }
   

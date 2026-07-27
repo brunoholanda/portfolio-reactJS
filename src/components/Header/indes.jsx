@@ -6,14 +6,16 @@ import MenuMobile from "components/MenuMobile";
 export default function Header() {
     return (
         <header className={styles.header}>
-            <div className={styles.header__mobile}>
-                <MenuMobile />
-            </div>
-            <div className={styles.header__social}>
-                <SocialLinks />
-            </div>
-            <div className={styles.header__links}>
-                <MenuLinks />
+            <div className={styles.header__inner}>
+                <div className={styles.header__mobile}>
+                    <MenuMobile />
+                </div>
+                <div className={styles.header__social}>
+                    <SocialLinks />
+                </div>
+                <div className={styles.header__links}>
+                    <MenuLinks />
+                </div>
             </div>
         </header>
     )

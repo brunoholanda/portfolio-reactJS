@@ -1,12 +1,14 @@
 .socialLinks {
 
     display: flex;
+    align-items: center;
 
     &__wp, &__git, &__li {
         width: 30px;
         height: 30px;
         background-size: cover;
-        transition: background-image 0.5s ease;
+        transition: background-image 0.5s ease, filter 0.35s ease;
+        filter: var(--icone-filtro);
         margin-right: 1em;
     }
 
@@ -17,6 +19,7 @@
     &__git:hover {
         background-image: url('../../public/assets/icons/github-hover.png');
         cursor: pointer;
+        filter: none;
     }
     
     &__li {
@@ -26,6 +29,7 @@
     &__li:hover {
         background-image: url('../../public/assets/icons/linkedin-hover.png');
         cursor: pointer;
+        filter: none;
     }
 
     &__wp {
@@ -35,6 +39,7 @@
     &__wp:hover {
         background-image: url('../../public/assets/icons/wp-hover.png');
         cursor: pointer;
+        filter: none;
     }
 
 }

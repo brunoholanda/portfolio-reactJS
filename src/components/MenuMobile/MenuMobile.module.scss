@@ -1,3 +1,9 @@
+.mobileNav {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
 .mobileMenu {
 
     margin-bottom: .5em;
@@ -14,7 +20,8 @@
     li {
         list-style: none;
         margin-bottom: .5em;
-        border: 1px solid var(--preto-texto);
+        border: 1px solid var(--borda-suave);
+        background: var(--superficie-elevada);
         text-align: center;
         border-radius: 10px;
         width: 150px;
@@ -22,7 +29,8 @@
       
       &__cv {
          margin-bottom: .5em;
-            border: 1px solid var(--preto-texto);
+            border: 1px solid var(--borda-suave);
+            background: var(--superficie-elevada);
             text-align: center;
             border-radius: 10px;
             width: 150px;

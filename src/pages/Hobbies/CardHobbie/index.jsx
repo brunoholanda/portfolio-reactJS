@@ -3,33 +3,39 @@ import youtube from '../../../public/assets/icons/youtube.png';
 import github from '../../../public/assets/icons/mini-git-hub.png';
 import { useLanguage } from 'Context/LanguageContext';
 
-export default function CardHobbie({ id, imagem, titulo, resumo, stacks, video, repositorio }) {
-    const { language } = useLanguage(); // Use o contexto de idioma
+export default function CardHobbie({ imagem, titulo, resumo, stacks, video, repositorio }) {
+    const { language } = useLanguage();
+    const isPt = language === 'pt-br';
 
     return (
-        <div className={styles.card}>
-            <div className={styles.card__imagem}>
+        <article className={styles.card}>
+            <div className={styles.card__media}>
                 <img src={imagem} alt={titulo} />
-                <div className={styles.card__texto}>
-                    <h3>{titulo}</h3>
-                    <h4>{resumo}</h4>
-                    <p>{language === 'pt-br' ? 'Habilidades' : 'Skills'}: {stacks}</p>
-                </div>
+            </div>
+            <div className={styles.card__body}>
+                <h3>{titulo}</h3>
+                <p className={styles.card__summary}>{resumo}</p>
+                {stacks && (
+                    <p className={styles.card__stacks}>
+                        <span>{isPt ? 'Stacks' : 'Skills'}</span>
+                        {stacks}
+                    </p>
+                )}
             </div>
             <div className={styles.card__links}>
-                <a href={video} target="_blank" rel="noopener noreferrer">
-                    <div className={styles.link__icone}>
-                        <img src={youtube} alt="icone pequeno do YouTube" />
-                        <p>{language === 'pt-br' ? 'Ver Vídeo' : 'Watch Video'}</p>
-                    </div>
-                </a>
-                <a href={repositorio} target="_blank" rel="noopener noreferrer">
-                    <div className={styles.link__icone}>
-                        <img src={github} alt="icone pequeno do GitHub" />
-                        <p>{language === 'pt-br' ? 'Repositório' : 'Repository'}</p>
-                    </div>
-                </a>
+                {video && (
+                    <a href={video} target="_blank" rel="noopener noreferrer">
+                        <img src={youtube} alt="" />
+                        <span>{isPt ? 'Ver vídeo' : 'Watch video'}</span>
+                    </a>
+                )}
+                {repositorio && (
+                    <a href={repositorio} target="_blank" rel="noopener noreferrer">
+                        <img src={github} alt="" />
+                        <span>{isPt ? 'Repositório' : 'Repository'}</span>
+                    </a>
+                )}
             </div>
-        </div>
+        </article>
     );
 }

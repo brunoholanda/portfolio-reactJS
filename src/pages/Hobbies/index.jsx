@@ -1,31 +1,63 @@
 import { useEffect, useState } from 'react';
 import styles from './Hobbies.module.scss';
-import carregando from '../../public/assets/img/carregando.gif';
 import CardHobbie from './CardHobbie';
 import { useContent } from 'hook/useContent';
+import { Link } from 'react-router-dom';
 
 export default function Hobbies() {
-    const content = useContent(); // Use o hook useContent
+    const content = useContent();
     const [hobbies, setHobbies] = useState([]);
+    const isPt = content.language === 'pt-br';
 
     useEffect(() => {
-        setHobbies(content.hobbies || []); // Defina um valor padrão vazio
+        setHobbies(content.hobbies || []);
     }, [content]);
 
     return (
-        <div className={styles.hobbies}>
-            <h1>{content.language === 'pt-br' ? 'Meus Hobbies' : 'My Hobbies'}</h1>
-            <p>{content.language === 'pt-br' ? 'Aqui você pode conferir o que gosto de fazer no meu tempo livre' : 'Here you can check out what I like to do in my free time'}</p>
-            <h2>{content.language === 'pt-br' ? 'Criar coisas que outras pessoas podem usar' : 'Creating things that others can use'}</h2>
-            <p>{content.language === 'pt-br' ? 'Em 2013 subi meu primeiro vídeo no Youtube e nele eu mostrava uma fechadura eletrônica feita com sucata de um gravador de DVD.' : 'In 2013, I uploaded my first video on YouTube, showing an electronic lock made from a DVD recorder scrap.'}</p>
-            <p>{content.language === 'pt-br' ? 'Desde então sempre que tenho um tempo livre posto novos vídeos ensinando as pessoas a fazerem algumas engenhocas interessantes, e a seguir você pode conferir algumas delas:' : 'Since then, whenever I have free time, I post new videos teaching people how to make some interesting gadgets. Check out some of them below:'}</p>
-            <div className={styles.hobbies__cards}>
+        <main className={styles.page}>
+            <section className={styles.intro} aria-labelledby="hobbies-title">
+                <p className={styles.eyebrow}>
+                    {isPt ? 'Fora do escritório' : 'Off the clock'}
+                </p>
+                <h1 id="hobbies-title">
+                    {isPt ? 'Hobbies' : 'Hobbies'}
+                </h1>
+                <p className={styles.lead}>
+                    {isPt
+                        ? 'Criar coisas que outras pessoas podem usar — automação, hardware e tutoriais no YouTube desde 2013.'
+                        : 'Building things others can use — automation, hardware and YouTube tutorials since 2013.'}
+                </p>
+                <div className={styles.intro__story}>
+                    <p>
+                        {isPt
+                            ? 'Em 2013 subi meu primeiro vídeo mostrando uma fechadura eletrônica feita com sucata de um gravador de DVD. Sempre que dá, posto engenhocas novas e ensino o passo a passo.'
+                            : 'In 2013 I uploaded my first video showing an electronic lock made from a DVD recorder scrap. Whenever I can, I post new gadgets and teach the step-by-step.'}
+                    </p>
+                </div>
+                <div className={styles.intro__meta}>
+                    <span>
+                        {hobbies.length > 0
+                            ? `${hobbies.length} ${isPt ? 'projetos maker' : 'maker projects'}`
+                            : isPt
+                              ? 'Carregando…'
+                              : 'Loading…'}
+                    </span>
+                    <Link to="/projetos" className={styles.intro__link}>
+                        {isPt ? 'Ver projetos profissionais →' : 'See professional projects →'}
+                    </Link>
+                </div>
+            </section>
+
+            <section className={styles.grid} aria-label={isPt ? 'Lista de hobbies' : 'Hobbies list'}>
                 {hobbies.length > 0 ? (
                     hobbies.map((hobbie) => <CardHobbie {...hobbie} key={hobbie.id} />)
                 ) : (
-                    <img src={carregando} alt="Carregando..." />
+                    <div className={styles.loading} role="status">
+                        <span className={styles.loading__pulse} aria-hidden />
+                        <p>{isPt ? 'Carregando hobbies…' : 'Loading hobbies…'}</p>
+                    </div>
                 )}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
