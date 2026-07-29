@@ -1,0 +1,48 @@
+# Bruno Holanda
+
+> FullStack Web Developer — React, Node.js, AWS. Portfolio, projects, and contact.
+
+Site: https://www.brunoholanda.com
+Language: Portuguese (primary), English available in UI
+
+## About
+
+Bruno Holanda is a FullStack Web Developer based in Brazil. He works at RPE (rpe.tech), Brazil's largest retail payment processor for store cards. Previously an administrative manager at Bradesco, he transitioned into tech and now ships production SAAS, freelance products, and educational content.
+
+Stack day-to-day: React, React Native, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, MongoDB, AWS.
+
+## Key pages
+
+- [Home](https://www.brunoholanda.com/): Overview, featured projects, mentorship
+- [About](https://www.brunoholanda.com/sobre): Career story
+- [Timeline](https://www.brunoholanda.com/sobre/linha-do-tempo): Life and career milestones
+- [Projects](https://www.brunoholanda.com/projetos): Portfolio of shipped products
+- [Skills](https://www.brunoholanda.com/habilidades): Technology stack
+- [Contact](https://www.brunoholanda.com/contato): Email, LinkedIn, GitHub, WhatsApp
+- [Learn programming](https://www.brunoholanda.com/aprenda-programacao): Educational content
+
+## Featured products
+
+- OffRoad-R — Adventure marketplace (web + iOS + Android): https://offroad-r.com/
+- PDF Studio — In-browser PDF editor: https://pdf.brunoholanda.com/
+- Dev Tools — Developer utilities hub: https://tools.brunoholanda.com/
+- News Feed — Custom news dashboard: https://tools.brunoholanda.com/newsfeed
+- Quiosque — Digital panel campaigns: https://quiosque.brunoholanda.com/
+- Código de Partida — Programming course: https://curso.brunoholanda.com/
+
+## Contact
+
+- Email: holanda_rodrigues@hotmail.com
+- LinkedIn: https://www.linkedin.com/in/brunoholanda/
+- GitHub: https://github.com/brunoholanda
+- WhatsApp: https://wa.me/5583998150712
+- YouTube: https://www.youtube.com/@NerdKing
+- CV (PT): https://drive.google.com/file/d/1-R9jxd51oo7prkAWmcfHh1bITrzq1pEZ/view
+- CV (EN): https://drive.google.com/file/d/1KcMfJEVAf05Aiy9oYjDXeJpMgj9b59DG/view
+
+## Agent discovery
+
+- Agent skills index: https://www.brunoholanda.com/.well-known/agent-skills/index.json
+- MCP server card: https://www.brunoholanda.com/.well-known/mcp/server-card.json
+- API catalog: https://www.brunoholanda.com/.well-known/api-catalog
+- Markdown homepage: request `/` with `Accept: text/markdown`

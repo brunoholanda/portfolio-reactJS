@@ -1,9 +1,106 @@
+# Agent readiness — Apache + static assets
+#
+# Serves SPA routes while exposing machine-readable agent discovery:
+# Link headers, markdown negotiation, correct MIME types for .well-known.
+
+<IfModule mod_mime.c>
+  AddType application/json .json
+  AddType text/markdown .md
+  AddType text/plain .txt
+  AddType application/xml .xml
+</IfModule>
+
+# RFC 9727 api-catalog (extensionless file)
+<IfModule mod_headers.c>
+  <Location "/.well-known/api-catalog">
+    Header set Content-Type "application/linkset+json; profile=\"https://www.rfc-editor.org/info/rfc9727\""
+  </Location>
+
+  <Location "/.well-known/mcp">
+    Header set Content-Type "application/json; charset=utf-8"
+  </Location>
+
+  <Location "/docs/agent">
+    Header set Content-Type "text/markdown; charset=utf-8"
+  </Location>
+
+  # RFC 8288 Link headers for agent discovery (homepage)
+  <LocationMatch "^/$">
+    Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\""
+    Header always add Link "</.well-known/agent-skills/index.json>; rel=\"describedby\"; type=\"application/json\""
+    Header always add Link "</.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\""
+    Header always add Link "</llms.txt>; rel=\"service-doc\"; type=\"text/plain\""
+    Header always add Link "</docs/agent>; rel=\"service-doc\"; type=\"text/markdown\""
+    Header always add Link "</sitemap.xml>; rel=\"describedby\"; type=\"application/xml\""
+  </LocationMatch>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Markdown for Agents: Accept: text/markdown → homepage as markdown
+  RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+  RewriteCond %{REQUEST_URI} ^/?$
+  RewriteRule ^$ /index.md [L]
+
+  # Do not rewrite real files/dirs (keeps .well-known JSON as JSON, not SPA HTML)
   RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Extensionless well-known / docs static files
+  RewriteRule ^\.well-known/api-catalog$ - [L]
+  RewriteRule ^\.well-known/mcp/?$ /.well-known/mcp/index.json [L]
+  RewriteRule ^docs/agent$ /docs/agent [L]
+
+  # SPA fallback
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
+</IfModule>
+
+# Content-Type + token hint for markdown homepage
+<IfModule mod_headers.c>
+  <Files "index.md">
+    Header set Content-Type "text/markdown; charset=utf-8"
+    Header set x-markdown-tokens "950"
+    Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\""
+    Header always add Link "</.well-known/agent-skills/index.json>; rel=\"describedby\"; type=\"application/json\""
+    Header always add Link "</.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\""
+    Header always add Link "</llms.txt>; rel=\"service-doc\"; type=\"text/plain\""
+  </Files>
+
+  <FilesMatch "\.(json)$">
+    Header set Content-Type "application/json; charset=utf-8"
+  </FilesMatch>
+
+  <FilesMatch "\.(md)$">
+    Header set Content-Type "text/markdown; charset=utf-8"
+  </FilesMatch>
+</IfModule>
+
+# CORS for agent fetchers on discovery documents
+<IfModule mod_headers.c>
+  <LocationMatch "^/(\.well-known/|llms\.txt|sitemap\.xml|index\.md|docs/agent)">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+    Header set Access-Control-Allow-Headers "Accept, Content-Type"
+  </LocationMatch>
+</IfModule>
+
+# robots.txt must not be cached for years (CF was serving a stale Dev Tools file)
+<IfModule mod_headers.c>
+  <Files "robots.txt">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+    Header unset Expires
+  </Files>
+  <Files "sitemap.xml">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </Files>
+  <Files "llms.txt">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </Files>
 </IfModule>

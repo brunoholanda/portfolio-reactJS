@@ -1,0 +1,49 @@
+# https://www.brunoholanda.com
+# Content Signals: https://contentsignals.org/
+
+User-agent: *
+Allow: /
+Disallow: /operador
+Disallow: /login
+Disallow: /area-de-mebros
+Disallow: /course-details
+Disallow: /course-video
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: GPTBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: ChatGPT-User
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: ClaudeBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Claude-Web
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Google-Extended
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Applebot-Extended
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: PerplexityBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: Bytespider
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: OAI-SearchBot
+Allow: /
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://www.brunoholanda.com/sitemap.xml

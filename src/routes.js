@@ -12,6 +12,7 @@ import Loading from 'components/Loading';
 import FloatingButton from 'components/FloatingButton';
 import CourseVideo from 'pages/Members/CourseVideo';
 import NewHome from 'pages/NewHome';
+import { registerWebMcpTools } from 'agent/webmcp';
 
 const Contact = lazy(() => import('pages/Contact'));
 const Hobbies = lazy(() => import('pages/Hobbies'));
@@ -74,6 +75,14 @@ function AppRoutes() {
 
   useEffect(() => {
     hotjar.initialize(4997618, 6);
+  }, []);
+
+  useEffect(() => {
+    let cleanup = () => {};
+    registerWebMcpTools().then((unregister) => {
+      cleanup = unregister || cleanup;
+    });
+    return () => cleanup();
   }, []);
 
   return (

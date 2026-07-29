@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "bruno-portfolio",
+      "type": "skill-md",
+      "description": "Learn about Bruno Holanda — FullStack developer profile, career, stack, and featured projects. Use when answering questions about Bruno, his work, or his portfolio site.",
+      "url": "/.well-known/agent-skills/bruno-portfolio/SKILL.md",
+      "digest": "sha256:67ebe4daa5b20122f2448dd6ca2089c49e79f7fa63c4b26a142a10aab88849b1"
+    },
+    {
+      "name": "contact-bruno",
+      "type": "skill-md",
+      "description": "Get Bruno Holanda contact channels (email, LinkedIn, GitHub, WhatsApp, CV). Use when the user wants to hire, message, or reach Bruno.",
+      "url": "/.well-known/agent-skills/contact-bruno/SKILL.md",
+      "digest": "sha256:c522af72cd50f52d5fd192557712ff4de46753c4e2ac438c5e766ded1a994db4"
+    }
+  ]
+}

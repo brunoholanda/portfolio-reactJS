@@ -1,0 +1,46 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.brunoholanda.com/",
+      "service-doc": [
+        {
+          "href": "https://www.brunoholanda.com/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://www.brunoholanda.com/docs/agent",
+          "type": "text/markdown"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://www.brunoholanda.com/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://www.brunoholanda.com/.well-known/agent-skills/index.json",
+          "type": "application/json"
+        },
+        {
+          "href": "https://www.brunoholanda.com/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://www.brunoholanda.com/.well-known/mcp",
+      "service-desc": [
+        {
+          "href": "https://www.brunoholanda.com/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.brunoholanda.com/docs/agent",
+          "type": "text/markdown"
+        }
+      ]
+    }
+  ]
+}

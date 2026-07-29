@@ -1,0 +1,40 @@
+; DNS for AI Discovery (DNS-AID) — publish at your DNS provider for brunoholanda.com
+; Spec: https://datatracker.ietf.org/doc/draft-mozleywilliams-dnsop-dnsaid/
+; Scanner looks for _index._agents / _a2a._agents / _mcp._agents SVCB/HTTPS records.
+;
+; IMPORTANT: These records cannot be shipped in the React build. Add them in the
+; DNS panel of your registrar (Registro.br, Cloudflare, GoDaddy, Hostinger, etc.).
+; Prefer enabling DNSSEC on the zone so validating resolvers accept the data.
+;
+; Replace TARGET hostnames/IPs with your real edge if different from www.
+
+; --- Index entrypoint (well-known discovery) ---
+_index._agents.brunoholanda.com.  3600  IN  HTTPS  1  www.brunoholanda.com. (
+    alpn="h2,h3"
+    port=443
+)
+
+; Optional SVCB twin for clients that query SVCB instead of HTTPS
+_index._agents.brunoholanda.com.  3600  IN  SVCB  1  www.brunoholanda.com. (
+    alpn="h2,h3"
+    port=443
+)
+
+; --- MCP discovery leaf ---
+_mcp._agents.brunoholanda.com.  3600  IN  HTTPS  1  www.brunoholanda.com. (
+    alpn="h2,h3"
+    port=443
+)
+
+; --- A2A-style leaf (points agents at the same HTTPS site / agent docs) ---
+_a2a._agents.brunoholanda.com.  3600  IN  HTTPS  1  www.brunoholanda.com. (
+    alpn="h2,h3"
+    port=443
+)
+
+; Optional TXT capability hints (same owner names)
+_index._agents.brunoholanda.com.  3600  IN  TXT  "agent-skills=/.well-known/agent-skills/index.json" "mcp=/.well-known/mcp/server-card.json" "llms=/llms.txt"
+
+; After publishing, verify with DoH, e.g.:
+; https://cloudflare-dns.com/dns-query?name=_index._agents.brunoholanda.com&type=HTTPS
+; Then re-scan: POST https://isitagentready.com/api/scan {"url":"https://www.brunoholanda.com"}

@@ -1,0 +1,31 @@
+{
+  "name": "Bruno Holanda Portfolio MCP",
+  "version": "1.0.0",
+  "description": "Discovery endpoint for portfolio agent tools. Interactive tools are exposed via WebMCP on the homepage (document.modelContext / navigator.modelContext). Structured instructions live under /.well-known/agent-skills/.",
+  "protocol": "mcp",
+  "transport": "streamable-http",
+  "tools": [
+    {
+      "name": "get_profile",
+      "description": "Return Bruno Holanda profile summary (role, employer, stack, links)."
+    },
+    {
+      "name": "list_projects",
+      "description": "List featured live products and portfolio project URLs."
+    },
+    {
+      "name": "get_contact",
+      "description": "Return official contact channels and CV links."
+    },
+    {
+      "name": "navigate_site",
+      "description": "Return canonical URLs for main portfolio sections."
+    }
+  ],
+  "resources": [
+    "https://www.brunoholanda.com/llms.txt",
+    "https://www.brunoholanda.com/.well-known/agent-skills/index.json",
+    "https://www.brunoholanda.com/.well-known/mcp/server-card.json"
+  ],
+  "webmcp": "Tools execute in-browser via WebMCP when the homepage is loaded."
+}

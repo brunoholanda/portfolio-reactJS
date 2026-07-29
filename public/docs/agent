@@ -1,0 +1,23 @@
+# Bruno Holanda — Agent discovery
+
+Machine-readable entry points for AI agents visiting https://www.brunoholanda.com.
+
+## Prefer these resources
+
+1. `GET /llms.txt` — short profile overview
+2. `GET /` with `Accept: text/markdown` — markdown homepage
+3. `GET /.well-known/agent-skills/index.json` — skills index
+4. `GET /.well-known/mcp/server-card.json` — MCP server card
+5. `GET /.well-known/api-catalog` — RFC 9727 API catalog (linkset+json)
+6. WebMCP tools on page load (`get_profile`, `list_projects`, `get_contact`, `navigate_site`)
+
+## Contact
+
+- Email: holanda_rodrigues@hotmail.com
+- LinkedIn: https://www.linkedin.com/in/brunoholanda/
+- GitHub: https://github.com/brunoholanda
+- WhatsApp: https://wa.me/5583998150712
+
+## Content Signals
+
+`robots.txt` declares `Content-Signal: ai-train=no, search=yes, ai-input=yes` — indexing and agent input OK; training preference is no.
