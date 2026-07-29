@@ -22,6 +22,8 @@ const PageBody = lazy(() => import('pages/PageBody'));
 const MyStacks = lazy(() => import('pages/MyStacks'));
 const MyProjectsPage = lazy(() => import('pages/MyProjectsPage'));
 const About = lazy(() => import('pages/About'));
+const LifeTimeline = lazy(() => import('pages/LifeTimeline'));
+const LearnProgramming = lazy(() => import('pages/LearnProgramming'));
 const CapturePage = lazy(() => import('pages/Capture'));
 const Posts = lazy(() => import('pages/Painel'));
 
@@ -83,6 +85,8 @@ function AppRoutes() {
           <Route path="/" element={<PageBody />}>
             <Route index element={<Home />} />
             <Route path="/sobre" element={<About />} />
+            <Route path="/sobre/linha-do-tempo" element={<LifeTimeline />} />
+            <Route path="/aprenda-programacao" element={<LearnProgramming />} />
             <Route path="/habilidades" element={<MyStacks />} />
             <Route path="/projetos" element={<MyProjectsPage />} />
             <Route path="/projetos/:id" element={<Post />} />

@@ -126,6 +126,16 @@
     border: 1px solid var(--borda-suave);
 }
 
+.ctaGhost {
+    color: var(--preto-texto);
+    background: transparent;
+    border: 1px solid var(--borda-suave);
+
+    &:hover {
+        border-color: rgba(0, 161, 255, 0.4);
+    }
+}
+
 .experiencia,
 .formacaoSection {
     margin-bottom: 4rem;

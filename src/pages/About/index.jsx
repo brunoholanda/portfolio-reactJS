@@ -205,7 +205,13 @@ export default function About() {
                     <Link to="/projetos" className={`${styles.cta} ${styles.ctaPrimary}`}>
                         {isPt ? 'Ver projetos' : 'View projects'}
                     </Link>
-                    <Link to="/contato" className={`${styles.cta} ${styles.ctaSecondary}`}>
+                    <Link
+                        to="/sobre/linha-do-tempo"
+                        className={`${styles.cta} ${styles.ctaSecondary}`}
+                    >
+                        {isPt ? 'Minha vida em linha do tempo' : 'My life on a timeline'}
+                    </Link>
+                    <Link to="/contato" className={`${styles.cta} ${styles.ctaGhost}`}>
                         {isPt ? 'Falar comigo' : 'Get in touch'}
                     </Link>
                 </div>

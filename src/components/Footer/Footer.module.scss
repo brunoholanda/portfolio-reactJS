@@ -215,6 +215,17 @@
             color: transparent;
         }
     }
+
+    &__version {
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.04em;
+        opacity: 0.85;
+        background: none;
+        -webkit-background-clip: unset;
+        background-clip: unset;
+        color: var(--cinza-texto);
+    }
 }
 
 @media screen and (max-width: 900px) {

@@ -46,6 +46,9 @@ export default function MenuMobile() {
                     <Link to="./contato">
                         <li>{language === 'pt-br' ? 'Contato' : 'Contact'}</li>
                     </Link>
+                    <Link to="./aprenda-programacao">
+                        <li>{language === 'pt-br' ? 'Aprenda programação' : 'Learn programming'}</li>
+                    </Link>
                     <Link to="./hobbies">
                         <li>{language === 'pt-br' ? 'Hobbies' : 'Hobbies'}</li>
                     </Link>

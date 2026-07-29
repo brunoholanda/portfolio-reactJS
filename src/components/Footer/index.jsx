@@ -55,6 +55,7 @@ export default function Footer() {
         { to: '/habilidades', label: isPt ? 'Habilidades' : 'Skills' },
         { to: '/projetos', label: isPt ? 'Projetos' : 'Projects' },
         { to: '/hobbies', label: 'Hobbies' },
+        { to: '/aprenda-programacao', label: isPt ? 'Aprenda programação' : 'Learn programming' },
         { to: '/contato', label: isPt ? 'Contato' : 'Contact' },
     ];
 
@@ -125,6 +126,7 @@ export default function Footer() {
                     <p className={styles.footer__credit}>
                         {isPt ? 'Desenvolvido por' : 'Built by'}{' '}
                         <span>Bruno Holanda</span>
+                        <span className={styles.footer__version}> V - 3.0.1</span>
                     </p>
                 </div>
             </div>

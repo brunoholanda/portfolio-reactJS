@@ -135,6 +135,9 @@ export default function MenuLinks() {
             <Link to="/contato" className={styles.menuLinks__link} onClick={close}>
                 {isPt ? 'Contato' : 'Contact'}
             </Link>
+            <Link to="/aprenda-programacao" className={styles.menuLinks__link} onClick={close}>
+                {isPt ? 'Aprenda programação' : 'Learn programming'}
+            </Link>
 
             <Dropdown
                 label={isPt ? 'Baixar CV' : 'Resume'}
